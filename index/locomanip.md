@@ -1,4 +1,4 @@
-# LocoManip
+# LocoManip（0 篇）
 
 <!-- 本文件由 scripts/build_index.py 自动生成，请勿手工修改。 -->
 

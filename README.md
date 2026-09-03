@@ -29,16 +29,18 @@
 
 ## 核心分类
 
-| ID | 主分类 | 入口 | 关注内容 |
-|---|---|---|---|
-| C1 | 数据集 | [datasets](index/datasets.md) | 人体动作、机器人动作、视频、音乐、交互数据 |
-| C2 | 重定向 | [retargeting](index/retargeting.md) | Human/SMPL/SMPL-X 到机器人、IK、神经重定向 |
-| C3 | 动作生成 | [motion-generation](index/motion-generation.md) | Text/Music/Audio/Video 到 Motion |
-| C4 | Locomotion 与运动先验 | [locomotion-prior](index/locomotion-prior.md) | Locomotion、AMP、ASE、Skill/Motion Prior |
-| C5 | 动作跟踪与全身控制 | [tracking-wbc](index/tracking-wbc.md) | Mimic、Tracking、WBC、RL Control |
-| C6 | LocoManip | [locomanip](index/locomanip.md) | Locomotion + Manipulation、HOI |
-| C7 | 世界模型 / VLA / Agent | [world-model-vla-agent](index/world-model-vla-agent.md) | World Model、VLA、VLM、Agent |
-| C8 | 工程与实机部署 | [engineering](index/engineering.md) | Isaac Lab、MuJoCo、Sim2Real、推理与通信 |
+<!-- AUTO-CORE-CATEGORIES:START -->
+| 分类 ID | 主分类 | 当前收录 | 入口 | 关注内容 |
+|---|---|---:|---|---|
+| C1 | 数据集 | **1 篇** | [datasets](index/datasets.md) | 人体动作、机器人动作、视频、音乐、交互数据 |
+| C2 | 重定向 | **1 篇** | [retargeting](index/retargeting.md) | Human/SMPL/SMPL-X 到机器人、IK、神经重定向 |
+| C3 | 动作生成 | **28 篇** | [motion-generation](index/motion-generation.md) | Text/Music/Audio/Video 到 Motion |
+| C4 | Locomotion 与运动先验 | **3 篇** | [locomotion-prior](index/locomotion-prior.md) | Locomotion、AMP、ASE、Skill/Motion Prior |
+| C5 | 动作跟踪与全身控制 | **3 篇** | [tracking-wbc](index/tracking-wbc.md) | Mimic、Tracking、WBC、RL Control |
+| C6 | LocoManip | **0 篇** | [locomanip](index/locomanip.md) | Locomotion + Manipulation、HOI |
+| C7 | 世界模型 / VLA / Agent | **2 篇** | [world-model-vla-agent](index/world-model-vla-agent.md) | World Model、VLA、VLM、Agent |
+| C8 | 工程与实机部署 | **0 篇** | [engineering](index/engineering.md) | Isaac Lab、MuJoCo、Sim2Real、推理与通信 |
+<!-- AUTO-CORE-CATEGORIES:END -->
 
 ## 最近更新
 
