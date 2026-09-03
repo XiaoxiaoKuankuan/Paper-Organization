@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2311.16471) · [项目页](https://zixiangzhou916.github.io/UDE-2/) · [官方代码](https://github.com/zixiangzhou916/UDE-2)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Zixiang Zhou、Yu Wan、Baoyuan Wang
+>
+> **机构**：Xiaobing.AI
+>
+> **论文时间**：2023-11-28
+>
+> **期刊 / 会议**：arXiv preprint arXiv:2311.16471
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **自回归** · **Transformer** · **文本** · **音乐** · **语音**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 将 UDE 从文本/音乐驱动身体扩展到文本、音乐、语音三模态和躯干、手部等多身体部位。
@@ -87,4 +105,5 @@ CLIP、MTR、HuBERT 分别提供文本、音乐、语音语义，encoder–decod
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理分部位量化、三模态编码与公开资源边界。

@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2304.02419) · [项目页](https://garfield-kh.github.io/TM2D/)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Kehong Gong、Dongze Lian、Heng Chang、Chuan Guo、Zihang Jiang、Xinxin Zuo、Michael Bi Mi、Xinchao Wang
+>
+> **机构**：National University of Singapore、Huawei Technologies
+>
+> **论文时间**：2023-04-05
+>
+> **期刊 / 会议**：ICCV 2023
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**舞蹈生成** · **音乐** · **文本** · **多模态** · **自回归** · **运动先验**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 提出音乐 + 带起止时间文本的双模态舞蹈任务，让文本在指定区间注入“侧手翻/旋转”等语义，同时维持整段音乐节奏。
@@ -86,4 +104,5 @@ MPD 度量预测动作与运动分布的距离，Freezing Score 统计长时间�
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理共享码本、时段文本控制和评价指标。

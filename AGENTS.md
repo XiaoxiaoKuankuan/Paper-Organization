@@ -6,7 +6,7 @@
 
 **准确性 > 完整性 > 结构一致性 > 更新速度。**
 
-不得为了填满模板而猜测作者、单位、日期、开源状态、实验结果或复现结论。无法从可靠来源确认的字段使用 `null`，并在正文标注“待核验”。
+不得为了填满模板而猜测作者、单位、日期、开源状态、实验结果或复现结论。普通可选字段无法从可靠来源确认时使用 `null`，并在正文标注“待核验”；作者、机构、日期和出版信息属于正文必显书目信息，必须从一手来源核验，其中正式出版日暂不可得时以首次公开日期登记并在资料说明中写清口径。
 
 ## 2. 语言与记录
 
@@ -64,11 +64,12 @@
 4. 读取本地材料，并用一手公开来源核验元数据和开源状态。
 5. 将原论文备份放入 `local_archive/<ID>/`；将用户指定的方法详解与全文翻译复制到论文目录的 `attachments/`。
 6. 提取原论文的总览、方法和关键结果图；完成正文并明确“论文事实”“材料解读”“个人判断”。
-7. 运行 `python3 scripts/validate_library.py --strict-local`。
-8. 运行 `python3 scripts/build_index.py`，随后运行 `python3 scripts/build_index.py --check`。
-9. 运行 `git diff --check`，检查变更统计并更新 `CHANGELOG.md`。
-10. 仅暂存本次任务范围内的文件，使用中文提交说明创建提交。
-11. 将提交推送到当前分支；若推送失败，保留本地提交并在交付说明中报告原因。
+7. 运行 `python3 scripts/sync_paper_info.py`，将作者、机构、论文时间和出版信息同步到正文信息卡。
+8. 运行 `python3 scripts/validate_library.py --strict-local`。
+9. 运行 `python3 scripts/build_index.py`，随后运行 `python3 scripts/sync_paper_info.py --check` 与 `python3 scripts/build_index.py --check`。
+10. 运行 `git diff --check`，检查变更统计并更新 `CHANGELOG.md`。
+11. 仅暂存本次任务范围内的文件，使用中文提交说明创建提交。
+12. 将提交推送到当前分支；若推送失败，保留本地提交并在交付说明中报告原因。
 
 ## 9. Git 规则
 
@@ -81,8 +82,9 @@
 
 ## 10. 自动生成内容
 
-以下内容由 `scripts/build_index.py` 生成或替换，禁止手工修改自动区块：
+以下内容由脚本生成或替换，禁止手工修改自动区块：
 
 - 根 `README.md` 的馆藏统计和最近更新区块。
 - `papers/README.md`。
 - `index/*.md` 的论文表格。
+- 每篇论文正文中 `AUTO-BASIC-INFO` 包围的基本信息卡；它由 `scripts/sync_paper_info.py` 根据隐藏 YAML 生成。

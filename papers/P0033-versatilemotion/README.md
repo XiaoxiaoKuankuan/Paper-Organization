@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2411.17335) · [官方代码（原 MotionLLaMA 名称）](https://github.com/ZeyuLing/MotionLLaMA)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Zeyu Ling、Bo Han、Shiyang Li、Jikang Cheng、Hongdeng Shen、Changqing Zou
+>
+> **机构**：Zhejiang University、ByteDance、University of Chinese Academy of Sciences、Zhejiang Lab
+>
+> **论文时间**：2024-11-26
+>
+> **期刊 / 会议**：ACM Transactions on Graphics, 2026
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **Transformer** · **流匹配** · **自回归** · **SMPL-X** · **大规模数据**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 提出 HoMi Tokenizer，以单码本同时编码身体和手部，在重建精度上接近多层 RVQ，建立全身统一动作 token。
@@ -86,4 +104,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，明确 MotionLLaMA/VersatileMotion 名称演进，解析 HoMi、LLM 和 flow matching。

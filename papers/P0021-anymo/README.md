@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2605.29488)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Yiheng Li、Zhuo Li、Ruibing Hou、Yingjie Chen、Hong Chang、Hao Liu、Shiguang Shan
+>
+> **机构**：Institute of Computing Technology CAS、University of Chinese Academy of Sciences
+>
+> **论文时间**：2026-05-28
+>
+> **期刊 / 会议**：arXiv preprint arXiv:2605.29488
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **掩码建模** · **Transformer** · **大规模数据** · **文本** · **音乐** · **语音**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 构建 OmniHuMo：超过 5000 小时、320 万动作序列和精确对齐的文本、语音、音乐、轨迹标注，用于研究多模态规模化。
@@ -85,4 +103,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理 OmniHuMo 自动管线、Residual FSQ 与任意模态掩码建模。

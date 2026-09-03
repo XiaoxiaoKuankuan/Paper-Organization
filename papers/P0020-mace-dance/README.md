@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2512.18181) · [项目页](https://macedance.github.io/)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Kaixing Yang、Jiashu Zhu、Xulong Tang、Ziqiao Peng、Xiangyue Zhang、Puwei Wang、Jiahong Wu、Xiangxiang Chu、Hongyan Liu、Jun He
+>
+> **机构**：Renmin University of China、AMAP Alibaba Group、Malou Tech、Wuhan University、Tsinghua University
+>
+> **论文时间**：2025-12-20
+>
+> **期刊 / 会议**：arXiv preprint arXiv:2512.18181
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**舞蹈生成** · **音乐** · **视频** · **扩散模型** · **混合专家** · **物理合理性**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 将音乐到舞蹈视频拆成 Motion Expert 与 Appearance Expert：先生成三维身体运动，再按参考人物外观合成时序一致视频。
@@ -86,4 +104,5 @@ Appearance Expert 只能渲染上游提供的姿态，Motion Expert 的脚滑、
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理动作—外观级联、两类专家及联合评价边界。

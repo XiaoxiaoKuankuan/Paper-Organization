@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2405.16273) · [项目页](https://luomingshuang.github.io/M3GPT/) · [官方代码](https://github.com/luomingshuang/M3GPT)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Mingshuang Luo、Ruibing Hou、Zhuo Li、Hong Chang、Zimo Liu、Yaowei Wang、Shiguang Shan
+>
+> **机构**：Institute of Computing Technology CAS、Peng Cheng Laboratory、University of Chinese Academy of Sciences、WeChat Tencent、Harbin Institute of Technology Shenzhen
+>
+> **论文时间**：2024-05-25
+>
+> **期刊 / 会议**：NeurIPS 2024
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **自回归** · **Transformer** · **文本** · **音乐** · **人体动作**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 将文本、音乐和动作分别离散化并纳入统一词表，用同一自回归模型完成跨模态理解与生成。
@@ -87,4 +105,5 @@ music-to-text 与 text-to-dance 把音乐和动作分别对齐到 LLM 擅长的�
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，解析三模态词表、连续动作反馈与文本桥接任务。

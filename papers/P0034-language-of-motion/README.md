@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2412.10523) · [项目页](https://languageofmotion.github.io/)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Changan Chen、Juze Zhang、Shrinidhi K. Lakshmikanth、Yusu Fang、Ruizhi Shao、Gordon Wetzstein、Li Fei-Fei、Ehsan Adeli
+>
+> **机构**：Stanford University
+>
+> **论文时间**：2024-12-13
+>
+> **期刊 / 会议**：CVPR 2025
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **Transformer** · **文本** · **语音** · **人体动作** · **动作编辑**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 用多模态语言模型统一文本、语音和动作的任意输入组合，既生成动作，也执行描述、情绪理解和可编辑手势等任务。
@@ -86,4 +104,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理组合式动作 token、统一多模态任务与生成式预训练。

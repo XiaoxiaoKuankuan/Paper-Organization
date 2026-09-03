@@ -3,8 +3,8 @@
 id: P0005
 title_en: "HIL: Hybrid Imitation Learning for Dynamic Athletic Control"
 title_zh: "HIL：面向动态运动控制的混合模仿学习"
-year: 2026
-date: null
+year: 2025
+date: 2025-05-19
 venue: "ACM Transactions on Graphics (TOG), 2026"
 primary_category: locomotion-prior
 tags:
@@ -62,11 +62,27 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2505.12619) · [项目页](https://xbpeng.github.io/projects/HIL/index.html) · [全文翻译与方法框架详解](attachments/全文翻译与方法框架详解.pdf) · [中英左右对照全文](attachments/中英左右对照全文.pdf)
 
-## 1. 基本信息
+## 基本信息
 
-- 发表：ACM Transactions on Graphics，2026。
-- 项目页：[HIL](https://xbpeng.github.io/projects/HIL/index.html)
-- 预印本：[arXiv:2505.12619](https://arxiv.org/abs/2505.12619)。预印本题名与最终 TOG 版本题名不同，本页以最终版本为准。
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Jiashun Wang、Yifeng Jiang、Haotian Zhang、Chen Tessler、Davis Rempe、Jessica Hodgins、Xue Bin Peng
+>
+> **机构**：Carnegie Mellon University、NVIDIA、Simon Fraser University
+>
+> **论文时间**：2025-05-19
+>
+> **期刊 / 会议**：ACM Transactions on Graphics (TOG), 2026
+>
+> **主分类**：Locomotion 与运动先验
+>
+> **重点标签**：**模仿学习** · **对抗学习** · **强化学习** · **动作跟踪** · **运动先验** · **运动控制**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
+
+- 版本说明：预印本题名与最终 TOG 版本题名不同，本页以官方项目页列出的最终版本为准；论文时间登记为 arXiv 首次公开日期。
 - 开源状态：官方项目页提供论文与视频，但截至核验日没有 HIL 专用代码、权重或数据下载入口。
 
 ## 本文贡献
@@ -75,7 +91,7 @@ updated: 2026-09-03
 - 引入场景条件判别器，使动作“像参考”之外还必须符合障碍几何与可供性，缓解 AMP 在复杂场景中的错误技能复用。
 - 使用 Perturbed State Initialization 扩大参考轨迹邻域，让策略学习偏离后的恢复和技能衔接，在保真度、技能覆盖与任务完成之间取得平衡。
 
-## 3. 研究问题
+## 研究问题
 
 逐帧跟踪可以忠实复现动作，却难以偏离参考去适应新场景；只做对抗式分布匹配更自由，却容易模式坍塌并反复使用少数简单技能。论文目标是让一个控制器同时保留两者优势。
 
@@ -130,5 +146,6 @@ HIL 适合用于理解“跟踪保真”和“任务适应”的权衡，也可�
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：创建精读档案；区分预印本与最终 TOG 题名，登记三份本地材料。
 - 2026-09-03：纳入两份译解附件和原论文总览/网络图，扩展混合训练与场景条件判别器解读。

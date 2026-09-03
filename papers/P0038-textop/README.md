@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2602.07439) · [项目页与开源入口](https://text-op.github.io/)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Weiji Xie、Jiakun Zheng、Jinrui Han、Jiyuan Shi、Weinan Zhang、Chenjia Bai、Xuelong Li
+>
+> **机构**：Institute of Artificial Intelligence TeleAI China Telecom、Shanghai Jiao Tong University、East China University of Science and Technology
+>
+> **论文时间**：2026-02-07
+>
+> **期刊 / 会议**：arXiv preprint arXiv:2602.07439
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **动作跟踪** · **扩散模型** · **自回归** · **文本** · **实时** · **人形机器人** · **Sim2Real**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 提出两层实时系统：高层自回归动作扩散不断生成短时运动学参考，低层通用跟踪策略在真实人形机器人上闭环执行。
@@ -86,4 +104,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理短窗自回归生成、历史衔接和低层跟踪接口。

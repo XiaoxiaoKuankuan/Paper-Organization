@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2306.14795) · [项目页](https://motion-gpt.github.io/) · [官方代码](https://github.com/OpenMotionLab/MotionGPT)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Biao Jiang、Xin Chen、Wen Liu、Jingyi Yu、Gang Yu、Tao Chen
+>
+> **机构**：Fudan University、Tencent PCG、ShanghaiTech University
+>
+> **论文时间**：2023-06-26
+>
+> **期刊 / 会议**：NeurIPS 2023
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **Transformer** · **自回归** · **文本** · **动作编辑** · **人体动作**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 将连续三维动作经 VQ-VAE 转成离散“动作词”，与文本 token 一起交给 T5 式语言模型建模。
@@ -86,4 +104,5 @@ VQ-VAE 将连续关节序列下采样到码本索引，decoder 重建动作。to
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，解析动作词表、T5 统一建模和提示式多任务训练。

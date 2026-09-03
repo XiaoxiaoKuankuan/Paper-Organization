@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2607.19903) · [YAHMP 官方代码](https://github.com/hucebot/yahmp) · [实验视频](https://youtu.be/BH6FpQzwm8M)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Fabio Amadio、Enrico Mingo Hoffman
+>
+> **机构**：Inria、Université de Lorraine、CNRS
+>
+> **论文时间**：2026-07-22
+>
+> **期刊 / 会议**：arXiv preprint arXiv:2607.19903
+>
+> **主分类**：动作跟踪与全身控制
+>
+> **重点标签**：**动作跟踪** · **基准** · **强化学习** · **全身控制** · **Unitree G1** · **Sim2Real**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 在同一 YAHMP 框架与动作集上逐项控制变量，比较参考命令、观测历史、动作表示、PD 配置、手部外力随机化和 Teacher–Student，而非比较彼此完全不同的整套系统。
@@ -86,4 +104,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，系统整理六类消融、50 Hz 部署与原论文实验框架。

@@ -66,11 +66,27 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2606.10340) · [项目页](https://tsinghua-mars-lab.github.io/OMG/) · [官方代码](https://github.com/Tsinghua-MARS-Lab/OMG) · [全文翻译与方法框架详解](attachments/全文翻译与方法框架详解.docx) · [中英左右对照全文](attachments/中英左右对照全文.pdf)
 
-## 1. 基本信息
+## 基本信息
 
-- 论文：[arXiv:2606.10340](https://arxiv.org/abs/2606.10340)
-- 项目页：[OMG](https://tsinghua-mars-lab.github.io/OMG/)
-- 代码：[Tsinghua-MARS-Lab/OMG](https://github.com/Tsinghua-MARS-Lab/OMG)，当前含数据、训练、生成、跟踪、benchmark 与 G1 实时部署文档，采用 MIT License。
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Siqiao Huang、Kun-Ying Lee、Dongming Qiao、Guanqi He、Zhenyu Wang、Yitang Li、Shaoting Zhu、Hang Zhao
+>
+> **机构**：Tsinghua University
+>
+> **论文时间**：2026-06-09
+>
+> **期刊 / 会议**：arXiv preprint arXiv:2606.10340
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **扩散模型** · **Transformer** · **文本** · **音频** · **音乐** · **Unitree G1** · **实时**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
+
+- 开源资源：官方仓库当前含数据、训练、生成、跟踪、benchmark 与 G1 实时部署文档，采用 MIT License。
 
 ## 本文贡献
 
@@ -78,7 +94,7 @@ updated: 2026-09-03
 - 提出直接在 125D 机器人动作空间做 `x`-prediction 的共享 OMG-DiT；语言/历史用交叉注意力，音频/人体参考用逐帧 FiLM。
 - 将生成器作为高层“动作大脑”接入 HoloMotion 跟踪器，支持单模态、未联合训练过的模态组合和实时 G1 部署；新条件以零初始化适配器接入以保留先验。
 
-## 3. 研究问题
+## 研究问题
 
 通用跟踪器能执行参考动作，却不能自行把高层多模态意图变成参考；人体动作数据又高度异构，缺少统一机器人空间和物理筛选。论文要构建可扩展的动作生成“大脑”，放在反应式跟踪“小脑”之上。
 
@@ -139,5 +155,6 @@ OMG 是“多模态动作生成大脑 + GMT 小脑”的直接工程参考，可
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：创建精读档案；登记三份本地材料并核验当前完整开源与部署入口。
 - 2026-09-03：纳入两份译解附件与三张原论文重点图；修正 GMR/跟踪权重开源边界，扩展数据筛选、条件注入和部署解读。

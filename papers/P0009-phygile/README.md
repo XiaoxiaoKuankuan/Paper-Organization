@@ -70,11 +70,27 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2603.19305) · [项目页](https://baojch.github.io/phygile-page/) · [当前公开 Tracking 代码](https://github.com/Baojch/phygile_tracking) · [方法详解与全文中文翻译](attachments/方法详解与全文中文翻译.docx)
 
-## 1. 基本信息
+## 基本信息
 
-- 论文：[arXiv:2603.19305](https://arxiv.org/abs/2603.19305)
-- 项目页：[PhyGile](https://baojch.github.io/phygile-page/)
-- 代码：[Baojch/phygile_tracking](https://github.com/Baojch/phygile_tracking)。截至 2026-09-03，公开仓库聚焦 Tracking，不能据此认定生成器、完整训练链路、权重和实机部署全部开源。
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Jiacheng Bao、Haoran Yang、Yucheng Xin、Junhong Liu、Yuecheng Xu、Han Liang、Pengfei Han、Xiaoguang Ma、Dong Wang、Bin Zhao
+>
+> **机构**：Shanghai AI Laboratory、University of Science and Technology of China、Tsinghua University、Fudan University、ByteDance、Northeastern University
+>
+> **论文时间**：2026-03-13
+>
+> **期刊 / 会议**：IROS 2026
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **物理引导** · **扩散模型** · **动作跟踪** · **课程学习** · **全身控制** · **Unitree G1** · **Sim2Real**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
+
+- 开源边界：截至 2026-09-03，公开仓库聚焦 Tracking，不能据此认定生成器、完整训练链路、权重和实机部署全部开源。
 
 ## 本文贡献
 
@@ -82,7 +98,7 @@ updated: 2026-09-03
 - 让文本扩散模型直接预测 262D 机器人原生状态，通过 TP-MoE 与 ASFO 分别处理 token 级专家化和语义长尾采样。
 - 提出 Physics-Prefix 生成—验证循环：只从 GMT 已执行成功的前缀续写约 1 秒，失败则拒绝/重采样，并用新分布继续微调跟踪器。
 
-## 3. 研究问题
+## 研究问题
 
 人体域文本动作即使几何上可重定向，也可能违反机器人力矩、接触和动态平衡约束；同时，大规模动作数据的长尾分布会使 GMT 偏向常见简单动作。论文试图同时解决“生成—执行错位”和“高难动作训练不足”。
 
@@ -135,5 +151,6 @@ Stage I 用带语义的 HumanML3D 将动作按控制难度分级，以 hard-bias
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：创建精读档案；登记两份本地材料，并将当前开源状态保守标记为 partial/unknown。
 - 2026-09-03：纳入译解附件与原论文框架图，细化课程式 MoE、262D 表征和 Physics-Prefix 循环。

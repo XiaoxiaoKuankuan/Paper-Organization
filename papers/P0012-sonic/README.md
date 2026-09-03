@@ -86,11 +86,27 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2511.07820) · [项目页](https://nvlabs.github.io/SONIC/) · [官方代码](https://github.com/NVlabs/GR00T-WholeBodyControl) · [全文翻译与方法框架图详解](attachments/全文翻译与方法框架图详解.docx)
 
-## 1. 基本信息
+## 基本信息
 
-- 论文：[arXiv:2511.07820](https://arxiv.org/abs/2511.07820)
-- 项目页：[NVIDIA SONIC](https://nvlabs.github.io/SONIC/)
-- 代码：[NVlabs/GR00T-WholeBodyControl](https://github.com/NVlabs/GR00T-WholeBodyControl)，当前提供训练、评估、模型和 G1 部署相关资源；论文约 700 小时的自有动作数据并未等同于完整公开数据集。
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Zhengyi Luo、Ye Yuan、Tingwu Wang、Chenran Li、Sirui Chen、Fernando Castañeda、Zi-Ang Cao、Jiefeng Li、David Minor、Qingwei Ben、Xingye Da、Runyu Ding、Cyrus Hogg、Lina Song、Edy Lim、Eugene Jeong、Tairan He、Haoru Xue、Wenli Xiao、Zi Wang、Simon Yuen、Jan Kautz、Yan Chang、Umar Iqbal、Linxi Jim Fan、Yuke Zhu
+>
+> **机构**：NVIDIA
+>
+> **论文时间**：2025-11-11
+>
+> **期刊 / 会议**：arXiv preprint arXiv:2511.07820
+>
+> **主分类**：动作跟踪与全身控制
+>
+> **重点标签**：**动作跟踪** · **全身控制** · **运动先验** · **大规模数据** · **Unitree G1** · **Sim2Real** · **实时** · **零样本** · **多模态**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
+
+- 开源边界：官方仓库当前提供训练、评估、模型和 G1 部署相关资源；论文约 700 小时的自有动作数据并未等同于完整公开数据集。
 
 ## 本文贡献
 
@@ -98,7 +114,7 @@ updated: 2026-09-03
 - 设计 Robot、Human、Hybrid 三种命令编码器，将机器人参考、人体关键点和上下身混合指令映射到统一 motion token，共享同一策略主干。
 - 以实时运动学规划器、VR、单目视频、GENMO 和 VLA 等多个入口验证统一控制接口，使同一 G1 策略承担低层 System 1 执行。
 
-## 3. 研究问题
+## 研究问题
 
 传统人形控制器规模小、数据少，而且常为每个技能重新设计奖励。SONIC 试图证明：密集参考监督的运动跟踪可以随模型、数据和算力扩展，形成可迁移到遥操作、交互导航、多模态动作及 VLA 的通用 System 1 控制基础。
 
@@ -155,5 +171,6 @@ SONIC 是 GENMO/OMG 等生成模型的关键执行端参考。接入或训练时
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：创建精读档案；登记两份本地材料，并将代码/模型/部署与未完整公开的自有数据分别记录。
 - 2026-09-03：纳入译解附件及统一策略/缩放原图，重写贡献并扩展三类 encoder、规模实验和部署接口解读。

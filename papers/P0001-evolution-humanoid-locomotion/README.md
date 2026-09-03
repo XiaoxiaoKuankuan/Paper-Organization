@@ -66,16 +66,29 @@ updated: 2026-09-03
 
 [论文](https://doi.org/10.1126/scirobotics.aed3973) · [配套资料](https://github.com/purdue-tracelab/Humanoid-Locomotion-Survey) · [中英对照全文翻译](attachments/中英对照全文翻译.pdf)
 
-## 1. 基本信息
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Yan Gu、Guanya Shi、Fan Shi、I-Chia Chang、Yen-Jen Wang、Qilong Cheng、Zachary Olkin、Ivan Lopez-Sanchez、Yunchu Feng、Jian Zhang、Aaron D. Ames、Hao Su、Koushil Sreenath
+>
+> **机构**：Purdue University、Carnegie Mellon University、National University of Singapore、University of California, Berkeley、New York University、California Institute of Technology、Meta Platforms Inc.
+>
+> **论文时间**：2026-08-19
+>
+> **期刊 / 会议**：Science Robotics, 11(117), eaed3973
+>
+> **主分类**：Locomotion 与运动先验
+>
+> **重点标签**：**人形机器人** · **运动控制** · **强化学习** · **物理引导** · **世界模型**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
 
 - 类型：综述论文，而非新控制器或可复现代码项目。
-- 发表：Science Robotics 11(117)，文章号 eaed3973，2026-08-19。
 - DOI：[10.1126/scirobotics.aed3973](https://doi.org/10.1126/scirobotics.aed3973)
-- 作者单位覆盖 Purdue、CMU、NUS、UC Berkeley、NYU、Caltech 与 Meta。
-
-### 开源状态
-
-论文没有对应训练代码、模型权重或数据集；GitHub 链接是综述配套资料入口，不应标记为“控制代码已开源”。
+- 开源边界：论文没有对应训练代码、模型权重或数据集；GitHub 链接是综述配套资料入口，不应标记为“控制代码已开源”。
 
 ## 本文贡献
 
@@ -83,7 +96,7 @@ updated: 2026-09-03
 - 用物理建模、受约束决策与不确定性适应三条主线解释各代方法共同解决的问题与不同取舍。
 - 将未来方向归纳为物理引导生成、多模态感知、任务级智能和安全部署，并指出从展示性敏捷动作走向开放世界仍缺可靠性评价。
 
-## 3. 研究问题
+## 研究问题
 
 综述试图回答：过去用于稳定行走的解析控制、近年用于敏捷全身运动的强化学习，以及正在兴起的生成模型如何构成一条连续技术路线，而不是彼此割裂的范式。
 
@@ -143,5 +156,6 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：创建精读档案，登记原文与中英对照材料；开源状态按综述属性记录。
 - 2026-09-03：隐藏元数据，纳入翻译附件与原论文 Figure 1/3，重写贡献和方法解读结构。

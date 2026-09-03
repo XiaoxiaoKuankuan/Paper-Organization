@@ -27,6 +27,7 @@ from library_common import (
     READ_STATUSES,
     REPRODUCE_STATUSES,
     iter_papers,
+    render_basic_info,
     repository_root,
 )
 
@@ -140,6 +141,8 @@ def main() -> int:
             errors.append(f"{label} 缺少“本文贡献”章节")
         if "## 研究方法详细解读" not in page_text:
             errors.append(f"{label} 缺少“研究方法详细解读”章节")
+        if render_basic_info(meta) not in page_text:
+            errors.append(f"{label} 缺少基本信息卡，或正文作者/机构/时间/出版信息与元数据不一致")
         directory_match = PAPER_DIR_PATTERN.fullmatch(record.directory.name)
         expected_id = directory_match.group(1) if directory_match else ""
         missing = sorted(REQUIRED_FIELDS - set(meta))
@@ -180,6 +183,11 @@ def main() -> int:
         for list_field in ("authors", "institutions"):
             if not isinstance(meta.get(list_field), list) or not meta.get(list_field):
                 errors.append(f"{label} 的 {list_field} 必须是非空列表")
+
+        if meta.get("date") is None:
+            errors.append(f"{label} 的 date 不能为空；无法确认完整日期时应登记可核验的首次公开日期")
+        if not str(meta.get("venue", "")).strip():
+            errors.append(f"{label} 的 venue 不能为空")
 
         for field in URL_FIELDS:
             if not valid_https_url(meta.get(field)):

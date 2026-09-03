@@ -35,6 +35,24 @@ updated: 2026-09-03
 
 > 飞书中的“GEM-X”是 SOMA 生态的视频人体估计器，不是独立论文；本条目归档其对应的 SOMA 技术报告，并保留 GEM-X 官方入口。
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Jun Saito、Jiefeng Li、Michael de Ruyter、Miguel Guerrero、Edy Lim、Ehsan Hassani、Roger Blanco Ribera、Hyejin Moon、Magdalena Dadela、Marco Di Lucca、Qiao Wang、Xueting Li、Jan Kautz、Simon Yuen、Umar Iqbal
+>
+> **机构**：NVIDIA
+>
+> **论文时间**：2026-03-17
+>
+> **期刊 / 会议**：NVIDIA Technical Report, arXiv:2603.16858
+>
+> **主分类**：重定向
+>
+> **重点标签**：**重定向** · **姿态估计** · **SMPL** · **SMPL-X** · **逆运动学** · **优化**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 用网格拓扑、骨架和姿态三层抽象统一 SOMA-Shape、MHR、SMPL-X、Anny 等互不兼容的人体模型。
@@ -89,4 +107,5 @@ GEM-X 从单目视频输出 SOMA 人体状态；Kimodo 在 SOMA 空间生成可�
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：将飞书 GEM-X 条目归并到对应 SOMA 技术报告，补充三层表示与生态接口解读。

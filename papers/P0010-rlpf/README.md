@@ -67,11 +67,27 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2506.12769) · [项目页](https://beingbeyond.github.io/RLPF/) · [代码占位仓库](https://github.com/BeingBeyond/RLPF) · [方法框架详解与全文中文翻译](attachments/方法框架详解与全文中文翻译.docx)
 
-## 1. 基本信息
+## 基本信息
 
-- 论文：[arXiv:2506.12769](https://arxiv.org/abs/2506.12769)
-- 项目页：[RLPF](https://beingbeyond.github.io/RLPF/)
-- 代码入口：[BeingBeyond/RLPF](https://github.com/BeingBeyond/RLPF)。截至 2026-09-03，仓库仍仅说明代码将发布，故这里不把占位仓库记为已开源。
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Junpeng Yue、Zepeng Wang、Yuxuan Wang、Weishuai Zeng、Jiangxing Wang、Xinrun Xu、Yu Zhang、Sipeng Zheng、Ziluo Ding、Zongqing Lu
+>
+> **机构**：Peking University、BeingBeyond、Wuhan University
+>
+> **论文时间**：2025-06-15
+>
+> **期刊 / 会议**：ECCV 2026
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **强化学习** · **物理反馈** · **Transformer** · **文本** · **重定向** · **动作跟踪** · **Unitree G1** · **Sim2Real**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
+
+- 开源状态：截至 2026-09-03，官方仓库仍仅说明代码将发布，故这里不把占位仓库记为已开源。
 
 ## 本文贡献
 
@@ -79,7 +95,7 @@ updated: 2026-09-03
 - 使用 GRPO 对同一文本的 20 个候选做组相对优化，无需额外价值网络；二值跟踪结果给出控制器真实能力边界。
 - 加入文本—动作、参考—生成两类语义对齐奖励和 KL 约束，抑制“站立最安全”等奖励投机，在可执行性与语义/多样性之间平衡。
 
-## 3. 研究问题
+## 研究问题
 
 传统文本到动作模型主要优化人体域的视觉质量和语义一致性，生成结果经重定向后仍可能脚滑、穿地或动态失稳。只优化“容易跟踪”又会产生站立等奖励投机，因此需要同时约束物理可执行性和语义忠实度。
 
@@ -132,5 +148,6 @@ RLPF 可作为“物理反馈后训练”路线，与 GENMO/OMG 的数据驱动�
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：创建精读档案；登记两份本地材料，并区分“已有仓库 URL”与“已有可运行代码”。
 - 2026-09-03：纳入译解附件和原论文框架图，扩展 GRPO 奖励、重定向—跟踪反馈及防投机机制。

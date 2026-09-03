@@ -75,11 +75,27 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2512.23650) · [项目页](https://gentlefress.github.io/RoboPerform-proj/) · [官方代码](https://github.com/gentlefress/RoboPerform) · [方法详解与全文中文翻译](attachments/方法详解与全文中文翻译.docx)
 
-## 1. 基本信息
+## 基本信息
 
-- 论文：[arXiv:2512.23650](https://arxiv.org/abs/2512.23650)
-- 项目页：[RoboPerform](https://gentlefress.github.io/RoboPerform-proj/)
-- 代码：[gentlefress/RoboPerform](https://github.com/gentlefress/RoboPerform)，当前含训练、推理、数据/检查点入口、TensorRT 导出、MuJoCo sim2sim 与实机部署说明。
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Zhe Li、Cheng Chi、Yangyang Wei、Boan Zhu、Tao Huang、Zhenguo Sun、Yibo Peng、Pengwei Wang、Zhongyuan Wang、Fangzhou Liu、Chang Xu、Shanghang Zhang
+>
+> **机构**：Beijing Academy of Artificial Intelligence、University of Sydney、Harbin Institute of Technology、Hong Kong University of Science and Technology、Shanghai Jiao Tong University、Peking University
+>
+> **论文时间**：2025-12-29
+>
+> **期刊 / 会议**：CVPR 2026 Highlight
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **全身控制** · **音频** · **音乐** · **扩散模型** · **蒸馏** · **运动先验** · **Unitree G1** · **实时** · **Sim2Real**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
+
+- 开源资源：官方仓库当前含训练、推理、数据/检查点入口、TensorRT 导出、MuJoCo sim2sim 与实机部署说明。
 
 ## 本文贡献
 
@@ -87,7 +103,7 @@ updated: 2026-09-03
 - 先用 ResMoE/ΔMoE 教师学习多分布可执行动作，再以 DAgger 风格蒸馏把物理控制知识传给音频条件扩散学生。
 - 以四层 MLP 扩散策略、`x0` 预测和两步 DDIM 实现约 5.3 ms 推理，直接输出 23D G1 关节目标，并公开 TensorRT、MuJoCo sim2sim 与实机部署链路。
 
-## 3. 研究问题
+## 研究问题
 
 常见音频驱动方案先生成完整人体动作，再重定向并跟踪，容易累积重建误差、增加延迟，并削弱音频与执行器之间的时序耦合。论文希望不显式重建人体动作，就能让机器人随音乐舞蹈或随语音生成伴随手势。
 
@@ -140,5 +156,6 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：创建精读档案；登记两份本地材料，核验正式 arXiv 编号及完整公开工程入口。
 - 2026-09-03：纳入译解附件与原论文框架图，补充教师、音频适配器、Motion VAE 和扩散学生网络细节。

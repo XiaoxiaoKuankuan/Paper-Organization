@@ -74,12 +74,27 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2606.17833) · [项目页](https://humanoidarena.github.io/) · [官方代码](https://github.com/William-wAng618/HumanoidArena) · [全文翻译与方法框架图详解](attachments/全文翻译与方法框架图详解.docx)
 
-## 1. 基本信息
+## 基本信息
 
-- 论文：[arXiv:2606.17833](https://arxiv.org/abs/2606.17833)
-- 项目页：[HumanoidArena](https://humanoidarena.github.io/)
-- 代码：[William-wAng618/HumanoidArena](https://github.com/William-wAng618/HumanoidArena)
-- 资源：官方页提供代码、训练/评估管线、LeRobot 数据、策略 checkpoint、仿真资产和原始演示；定位为 simulation-first，不宣称实机部署。
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Taowen Wang、Zikang Xie、Bin Yang、Yunheng Wang、Zizhao Yuan、Yuetong Fang、Yixiao Feng、Yichi Wang、Xingyu Chen、Haodong Chen、Qiwei Wu、Weisheng Xu、Lihan Chen、Lusong Li、Zecui Zeng、Renjing Xu
+>
+> **机构**：The Hong Kong University of Science and Technology (Guangzhou)、Beijing University of Technology、Harbin Institute of Technology, Shenzhen、Shenzhen MSU-BIT University、JD Explore Academy
+>
+> **论文时间**：2026-06-16
+>
+> **期刊 / 会议**：arXiv preprint arXiv:2606.17833
+>
+> **主分类**：数据集
+>
+> **重点标签**：**数据集** · **基准** · **人-物交互** · **移动操作** · **全身控制** · **Unitree G1** · **Isaac Lab**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
+
+- 开源资源：官方页提供代码、训练/评估管线、LeRobot 数据、策略 checkpoint、仿真资产和原始演示；定位为 simulation-first，不宣称实机部署。
 
 ## 本文贡献
 
@@ -87,7 +102,7 @@ updated: 2026-09-03
 - 定义 40D 中间动作和 GMT 适配接口，让 ACT、Diffusion Policy、Flow Policy、π0.5 等高层策略公平连接 TWIST2/SONIC。
 - 同时评估视觉、语义、执行扰动及 In-GMT/Cross-GMT 两类适配，揭示任务成功和跌倒并非由高层模型单独决定。
 
-## 3. 研究问题
+## 研究问题
 
 现有端到端系统难区分高层策略与低层跟踪器各自贡献，也缺少下肢协调对任务成功不可替代的 HOI/HSI 基准。论文关心中间动作是否可执行、对分布变化是否鲁棒、换 GMT 后是否仍可迁移。
 
@@ -140,5 +155,6 @@ TWIST2 下 Flow Matching 的 HOI/HSI 最佳平均成功率为 36.11%/58.75%；SO
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：创建基准精读档案；核验公开代码、数据、权重和资产，明确 simulation-first 边界。
 - 2026-09-03：纳入译解附件和原论文总览/扰动图，细化 40D 接口与跨 GMT 评测方法。

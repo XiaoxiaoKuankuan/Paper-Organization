@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2410.04534) · [项目页](https://hanyangclarence.github.io/unimumo_demo/)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Han Yang、Kun Su、Yutong Zhang、Jiaben Chen、Kaizhi Qian、Gaowen Liu、Chuang Gan
+>
+> **机构**：The Chinese University of Hong Kong、University of Washington、University of British Columbia、UMass Amherst、MIT-IBM Watson AI Lab、Cisco Research
+>
+> **论文时间**：2024-10-06
+>
+> **期刊 / 会议**：AAAI 2025
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **自回归** · **Transformer** · **文本** · **音乐** · **舞蹈生成**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 在缺少大规模配对数据时，通过节拍检测与动态时间规整将独立音乐、舞蹈对齐，利用音乐-only 与动作-only 数据。
@@ -86,4 +104,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，解析节拍弱配对、共享残差码本和并行生成。

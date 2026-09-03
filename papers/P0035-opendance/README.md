@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2506.07565) · [项目页](https://open-dance.github.io/)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Jinlu Zhang、Zixi Kang、Libin Liu、Jianlong Chang、Qi Tian、Feng Gao、Yizhou Wang
+>
+> **机构**：Peking University、Huawei Cloud
+>
+> **论文时间**：2025-06-09
+>
+> **期刊 / 会议**：CVPR 2026
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**舞蹈生成** · **多模态** · **掩码建模** · **Transformer** · **大规模数据** · **音乐** · **文本**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 从互联网构建超过 100 小时、14 种风格、147 位舞者的 OpenDanceSet，每条样本对齐 RGB、音频、2D 关键点、3D 动作和细粒度文本。
@@ -86,4 +104,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理五模态数据、解耦 tokenizer 和联合掩码生成。

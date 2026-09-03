@@ -64,11 +64,27 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2505.01425) · [项目页](https://research.nvidia.com/labs/dair/genmo) · [官方代码](https://github.com/NVlabs/GENMO) · [方法详解与全文翻译](attachments/方法详解与全文翻译.pdf)
 
-## 1. 基本信息
+## 基本信息
 
-- 论文：[arXiv:2505.01425](https://arxiv.org/abs/2505.01425)，ICCV 2025 Highlight。
-- 项目页：[NVIDIA Research](https://research.nvidia.com/labs/dair/genmo)
-- 代码：[NVlabs/GENMO](https://github.com/NVlabs/GENMO)。项目后来将 GENMO 更名为 GEM，但论文题名和永久档案 ID 保持不变。
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Jiefeng Li、Jinkun Cao、Haotian Zhang、Davis Rempe、Jan Kautz、Umar Iqbal、Ye Yuan
+>
+> **机构**：NVIDIA
+>
+> **论文时间**：2025-05-02
+>
+> **期刊 / 会议**：ICCV 2025 (Highlight)
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **人体动作** · **多模态** · **扩散模型** · **Transformer** · **文本** · **音乐** · **视频** · **SMPL**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
+
+- 名称说明：官方项目后来将 GENMO 更名为 GEM，但论文题名和永久档案 ID 保持不变。
 - 开源核验：官方仓库提供训练/推理代码与 GEM-SMPL 权重；训练所需完整数据集未随仓库发布。
 
 ## 本文贡献
@@ -77,7 +93,7 @@ updated: 2026-09-03
 - 设计逐帧加法条件融合与带时间区间的 Multi-Text Attention，使不同模态、多个文本片段和可变长度序列能共用主干。
 - 通过“生成模式 + 最大噪声估计模式”以及关节、顶点、接触、2D 重投影等几何监督，让生成先验反哺估计，并用野外 2D 视频扩大训练分布。
 
-## 3. 研究问题
+## 研究问题
 
 传统方法把估计与生成拆成不同模型，无法共享人体时序和运动学先验。论文希望同一网络既能在视频条件下精确恢复动作，又能在文本或音乐条件下保持多样性，并支持变长、分时段和多模态组合控制。
 
@@ -138,5 +154,6 @@ GENMO 适合作为视频/文本/音乐到人体运动的统一上游。机器人
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：建立 GENMO 精读档案，记录 GEM 更名与当前开源状态，登记本地原文和译解材料。
 - 2026-09-03：纳入译解附件和原论文方法图，补充 151D 表征、网络结构及双模式训练解读。

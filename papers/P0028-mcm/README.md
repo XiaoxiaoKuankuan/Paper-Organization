@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2404.12886)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Zeyu Ling、Bo Han、Yongkang Wongkan、Han Lin、Mohan Kankanhalli、Weidong Geng
+>
+> **机构**：Zhejiang University、National University of Singapore
+>
+> **论文时间**：2024-04-19
+>
+> **期刊 / 会议**：IJCAI 2024
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **扩散模型** · **Transformer** · **文本** · **音频** · **混合专家**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 提出主分支 + 控制分支的双分支扩散框架，将已训练文本动作模型扩展到音乐、语音与多条件输入。
@@ -85,4 +103,5 @@ MWNet 将动作视为关节、通道和时间组成的结构张量，通过多�
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，解析双分支条件适配、零初始化和 MWNet。

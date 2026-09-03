@@ -59,12 +59,14 @@
 
 ```bash
 python3 -m pip install -r requirements.txt
+python3 scripts/sync_paper_info.py
 python3 scripts/validate_library.py --strict-local
 python3 scripts/build_index.py
+python3 scripts/sync_paper_info.py --check
 python3 scripts/build_index.py --check
 ```
 
-新增论文时先复制 [论文模板](templates/paper-template.md)，只编辑论文档案的隐藏 YAML 元数据和正文，再运行校验与索引构建。方法详解与个人翻译放入论文目录的 `attachments/`，原论文备份仍放在不受 Git 跟踪的 `local_archive/`。
+新增论文时先复制 [论文模板](templates/paper-template.md)，编辑隐藏 YAML 元数据与正文，再运行基本信息同步、校验和索引构建。作者、机构、论文时间、期刊/会议、分类、标签及状态会从 YAML 自动生成到正文的无表格信息卡。方法详解与个人翻译放入论文目录的 `attachments/`，原论文备份仍放在不受 Git 跟踪的 `local_archive/`。
 
 ## 内容边界
 

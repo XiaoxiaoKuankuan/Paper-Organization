@@ -63,11 +63,27 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2603.13375) · [项目页](https://infinitedance.github.io/) · [官方代码](https://github.com/MotrixLab/InfiniteDance) · [全文翻译与方法详解](attachments/全文翻译与方法详解.docx)
 
-## 1. 基本信息
+## 基本信息
 
-- 论文：[arXiv:2603.13375](https://arxiv.org/abs/2603.13375)，ECCV 2026。
-- 项目页：[InfiniteDance](https://infinitedance.github.io/)
-- 代码与资源：[MotrixLab/InfiniteDance](https://github.com/MotrixLab/InfiniteDance)，提供训练/推理代码、数据与权重下载。
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Ronghui Li、Zhongyuan Hu、Li Siyao、Youliang Zhang、Haozhe Xie、Mingyuan Zhang、Jie Guo、Xiu Li、Ziwei Liu
+>
+> **机构**：Tsinghua University、Peng Cheng Laboratory、S-Lab, Nanyang Technological University
+>
+> **论文时间**：2026-03-10
+>
+> **期刊 / 会议**：ECCV 2026
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **音乐** · **人体动作** · **扩散模型** · **Transformer** · **动作捕捉** · **大规模数据**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
+
+- 开源资源：官方仓库提供训练/推理代码、数据与权重下载。
 
 ## 本文贡献
 
@@ -75,7 +91,7 @@ updated: 2026-09-03
 - 用 RVQ-VAE 将长动作压缩成层级离散 token，再以 ChoreoLLaMA 自回归生成，扩大序列长度与动作词汇容量。
 - 提出基于音乐检索的 RAG 与 Cadence-MoE，使生成同时利用外部编舞记忆和快慢节奏专家，提高长时节奏一致性与未见音乐泛化。
 
-## 3. 研究问题
+## 研究问题
 
 现有音乐舞蹈数据规模小、舞种窄；单目重建存在脚滑、漂浮和穿透；传统生成器面对野外音乐时易产生无结构动作。论文认为数据规模、动作物理质量和音乐条件建模必须共同解决。
 
@@ -136,5 +152,6 @@ MuQ 提取音乐表示，RVQ-VAE 把舞蹈量化为多层 token。跨模态 RAG 
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：创建精读档案；登记公开代码、数据和权重，明确人体生成与机器人执行的边界。
 - 2026-09-03：纳入译解附件及 FRDM、ChoreoLLaMA、Cadence-MoE 原图，扩展长时生成解读。

@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2510.19789)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Guowei Xu、Yuxuan Bian、Ailing Zeng、Zhuo Chen、Mingyi Shi、Shaoli Huang、Wen Li、Lixin Duan、Qiang Xu
+>
+> **机构**：University of Electronic Science and Technology of China、The Chinese University of Hong Kong、The University of Hong Kong、Tencent
+>
+> **论文时间**：2025-10-22
+>
+> **期刊 / 会议**：CVPR 2026 Findings
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **扩散模型** · **自回归** · **SMPL-X** · **大规模数据** · **动作编辑**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 以统一 sequence-to-sequence 自回归 Diffusion Transformer 支持文本动作、音乐舞蹈、语音手势、预测、插值、补全和关节/轨迹控制及其组合。
@@ -85,4 +103,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理 OmniMoCap-X、分块自回归扩散和渐进混合条件。

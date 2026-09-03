@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2606.21135) · [项目页](https://dsshim0125.github.io/odoriko.github.io/) · [Sony 研究入口](https://github.com/sony/creativeai)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Dongseok Shim、Julian Tanke、Kengo Uchida、Christian Simon、Koichi Saito、Takashi Shibuya、Shusuke Takahashi、Yuki Mitsufuji
+>
+> **机构**：Sony Group Corporation、Sony AI
+>
+> **论文时间**：2026-06-19
+>
+> **期刊 / 会议**：ECCV 2026
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **扩散模型** · **SMPL** · **姿态估计** · **文本** · **音乐** · **视频**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 在统一文本、音乐、视频、2D 姿态动作模型中显式加入性别与 SMPL 形状参数，使运动学输出与“谁在运动”一致。
@@ -87,4 +105,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理形状条件、估计/生成双模式与形状恢复边界。

@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2404.01700) · [官方代码](https://github.com/OpenMotionLab/MotionChain)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Biao Jiang、Xin Chen、Chi Zhang、Fukun Yin、Zhuoyuan Li、Gang Yu、Jiayuan Fan
+>
+> **机构**：Fudan University、Tencent
+>
+> **论文时间**：2024-04-02
+>
+> **期刊 / 会议**：ECCV 2024
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **Transformer** · **文本** · **图像** · **动作编辑** · **自回归**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 将文本、图像和动作转为多模态 token，引入 Vision-Motion-aware Language Model 处理多轮动作生成与编辑。
@@ -86,4 +104,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理多模态 token、对话上下文与连续动作拼接问题。

@@ -82,10 +82,26 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2608.18234) · [项目页](https://shepherd1226.github.io/gigabrain-wbc-0.5/) · [方法讲解与全文中文翻译](attachments/方法讲解与全文中文翻译.pdf)
 
-## 1. 基本信息
+## 基本信息
 
-- 论文：[arXiv:2608.18234](https://arxiv.org/abs/2608.18234)
-- 项目页：[GigaBrain-WBC-0.5](https://shepherd1226.github.io/gigabrain-wbc-0.5/)
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Ziyang Cheng、Tianshu Tang、Jinxin Lan、Xinze Chen、Yuhan Gong、Zhichao Liu、Changzhong Wu、Yahao Mao、Zongyan Deng、Mingxuan Ma、Huasen Xi、Yilong Liu、Yutong Wu、Xiaofeng Wang、Yang Wang、Yun Ye、Guan Huang、Xiaojie Jin、Zheng Zhu、Jiwen Lu
+>
+> **机构**：Tsinghua University、GigaAI、University of Shanghai for Science and Technology、Beijing Jiaotong University、Institute of Automation, Chinese Academy of Sciences、University of Chinese Academy of Sciences
+>
+> **论文时间**：2026-08-18
+>
+> **期刊 / 会议**：Technical report, arXiv:2608.18234
+>
+> **主分类**：世界模型 / VLA / Agent
+>
+> **重点标签**：**世界模型** · **全身控制** · **动作跟踪** · **Transformer** · **物理反馈** · **Unitree G1** · **Sim2Real**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
+### 资料与开源说明
+
 - 开源状态：项目页标注代码 “coming soon”；当前无官方 GitHub、权重或数据下载入口。
 
 ## 本文贡献
@@ -94,7 +110,7 @@ updated: 2026-09-03
 - 从已有动作的接触轨迹自动恢复可仿真支撑几何，构造包含椅子、台阶、负载等环境交互的训练数据，而不只训练空场平地跟踪。
 - 在部署时用上一时刻预测的 GMM 检测行为命令是否分布外，并把越界指令沿原意图方向回缩到安全椭球，提供 best-effort 执行。
 
-## 3. 研究问题
+## 研究问题
 
 大规模跟踪器通常在空场景和平地训练，无法利用椅子、台阶、负载等环境接触；当参考命令在当前环境下不可行时，纯反应式策略也缺少“当前还能做什么”的显式估计。
 
@@ -150,5 +166,6 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：创建精读档案；将项目页“代码即将发布”和 sim-to-sim/硬件演示边界分别记录。
 - 2026-09-03：纳入译解附件、行为世界模型图和地形恢复图，细化三输出头与 OOD 回缩机制。

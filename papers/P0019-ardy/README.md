@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2607.08741) · [项目页](https://research.nvidia.com/labs/sil/projects/ardy/)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Kaifeng Zhao、Mathis Petrovich、Haotian Zhang、Tingwu Wang、Siyu Tang、Davis Rempe
+>
+> **机构**：NVIDIA、ETH Zürich
+>
+> **论文时间**：2026-07-09
+>
+> **期刊 / 会议**：arXiv preprint arXiv:2607.08741
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **扩散模型** · **自回归** · **实时** · **文本** · **关键点** · **人体动作**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 提出流式自回归扩散框架，在在线文本提示、关键帧、路径与交互式 locomotion 指令下持续生成动作。
@@ -86,4 +104,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理混合表示、两阶段流式扩散和实时性边界。

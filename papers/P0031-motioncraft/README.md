@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2407.21136) · [项目页](https://cure-lab.github.io/MotionCraft)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Yuxuan Bian、Ailing Zeng、Xuan Ju、Xian Liu、Zhaoyang Zhang、Wei Liu、Qiang Xu
+>
+> **机构**：The Chinese University of Hong Kong、Tencent
+>
+> **论文时间**：2024-07-30
+>
+> **期刊 / 会议**：AAAI 2025
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **扩散模型** · **Transformer** · **SMPL-X** · **文本** · **音频**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 建立统一 SMPL-X 的 MC-Bench，解决文本动作、音乐舞蹈和语音手势数据骨架/部位不一致的问题。
@@ -86,4 +104,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理 MC-Bench、两阶段训练与 MC-Attn。

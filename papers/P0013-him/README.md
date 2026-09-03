@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2312.11460) · [官方代码](https://github.com/OpenRobotLab/HIMLoco)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Junfeng Long、Zirui Wang、Quanyi Li、Jiawei Gao、Liu Cao、Jiangmiao Pang
+>
+> **机构**：OpenRobotLab、Shanghai AI Laboratory、Zhejiang University、Tsinghua University
+>
+> **论文时间**：2023-12-18
+>
+> **期刊 / 会议**：ICLR 2024
+>
+> **主分类**：Locomotion 与运动先验
+>
+> **重点标签**：**运动控制** · **强化学习** · **对比学习** · **运动先验** · **Sim2Real** · **双足机器人**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 把难以直接感知的地形、摩擦和外部扰动视为未知环境动力学，用机器人短期响应反推对控制真正有用的隐变量。
@@ -86,4 +104,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，纳入飞书清单，补充原论文 Figure 1、混合嵌入与对比学习解读。

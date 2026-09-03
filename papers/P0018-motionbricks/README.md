@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2604.24833) · [项目页](https://nvlabs.github.io/motionbricks/)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Tingwu Wang、Olivier Dionne、Michael De Ruyter、David Minor、Davis Rempe、Kaifeng Zhao、Mathis Petrovich、Ye Yuan、Chenran Li、Zhengyi Luo、Brian Robison、Xavier Blackwell、Bernardo Antoniazzi、Xue Bin Peng、Yuke Zhu、Simon Yuen
+>
+> **机构**：NVIDIA、ETH Zürich、Simon Fraser University、The University of Texas at Austin
+>
+> **论文时间**：2026-04-27
+>
+> **期刊 / 会议**：ACM Transactions on Graphics 45(4), SIGGRAPH 2026
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **实时** · **动作潜变量** · **多模态** · **人-物交互** · **Unitree G1**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 面向生产级实时交互，在单一模块化潜变量主干中建模超过 35 万动作片段，报告约 2 ms 延迟与 15,000 FPS 批吞吐。
@@ -87,4 +105,5 @@ G1 演示将生成的人体/机器人参考交给低层全身控制。2 ms 指�
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理模块化 latent、Smart Primitives、实时性口径与 G1 接口。

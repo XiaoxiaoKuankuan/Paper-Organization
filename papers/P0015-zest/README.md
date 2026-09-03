@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2602.00401)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Jean Pierre Sleiman、He Li、Alphonsus Adu-Bredu、Robin Deits、Arun Kumar、Kevin Bergamin、Mohak Bhardwaj、Scott Biddlestone、Nicola Burger、Matthew A. Estrada、Francesco Iacobelli、Twan Koolen、Alexander Lambert、Erica Lin、M. Eva Mungai、Zach Nobles、Shane Rozen-Levy、Yuyao Shi、Jiashun Wang、Jakob Welner、Fangzhou Yu、Mike Zhang、Alfred Rizzi、Jessica Hodgins、Sylvain Bertrand、Yeuhi Abe、Scott Kuindersma、Farbod Farshidian
+>
+> **机构**：RAI Institute、Boston Dynamics
+>
+> **论文时间**：2026-01-30
+>
+> **期刊 / 会议**：arXiv preprint arXiv:2602.00401
+>
+> **主分类**：动作跟踪与全身控制
+>
+> **重点标签**：**动作跟踪** · **强化学习** · **全身控制** · **零样本** · **Sim2Real** · **人形机器人**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 用同一精简 RL 跟踪框架吸收高质量 MoCap、噪声单目视频与非物理动画，并在 Atlas、G1、Spot 三类形态上零样本上机。
@@ -85,4 +103,5 @@ Atlas 展示 army crawl、breakdance 等动态多接触技能，Atlas/G1 从视�
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理自适应 RSI、辅助外力课程和闭链执行器建模。

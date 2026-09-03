@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2404.01284) · [项目页](https://mingyuan-zhang.github.io/projects/LMM.html)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Mingyuan Zhang、Daisheng Jin、Chenyang Gu、Fangzhou Hong、Zhongang Cai、Jingfang Huang、Chongzhi Zhang、Xinying Guo、Lei Yang、Ying He、Ziwei Liu
+>
+> **机构**：S-Lab Nanyang Technological University、SenseTime Research
+>
+> **论文时间**：2024-04-01
+>
+> **期刊 / 会议**：ECCV 2024
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **多模态** · **扩散模型** · **Transformer** · **大规模数据** · **人体动作**
+>
+> **阅读状态**：已阅读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 构建 MotionVerse：统一 16 个数据集、10 类任务、约 32 万序列和 1 亿帧，建立多模态动作预训练底座。
@@ -86,4 +104,5 @@ LMM 在多项标准任务上与专用模型竞争，并展示未见任务/条件
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理 MotionVerse、ArtAttention 与多任务预训练策略。

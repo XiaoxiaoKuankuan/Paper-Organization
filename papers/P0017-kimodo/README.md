@@ -33,6 +33,24 @@ updated: 2026-09-03
 
 [论文](https://arxiv.org/abs/2603.15546) · [项目页](https://research.nvidia.com/labs/sil/projects/kimodo) · [官方代码](https://github.com/nv-tlabs/kimodo) · [中英左右对照技术报告](attachments/中英左右对照技术报告.pdf)
 
+## 基本信息
+
+<!-- AUTO-BASIC-INFO:START -->
+> **作者**：Davis Rempe、Mathis Petrovich、Ye Yuan、Haotian Zhang、Xue Bin Peng、Yifeng Jiang、Tingwu Wang、Umar Iqbal、David Minor、Michael de Ruyter、Jiefeng Li、Chen Tessler、Edy Lim、Eugene Jeong、Sam Wu、Ehsan Hassani、Michael Huang、Jin-Bey Yu、Chaeyeon Chung、Lina Song、Olivier Dionne、Jan Kautz、Simon Yuen、Sanja Fidler
+>
+> **机构**：NVIDIA
+>
+> **论文时间**：2026-03-16
+>
+> **期刊 / 会议**：NVIDIA Technical Report, arXiv:2603.15546
+>
+> **主分类**：动作生成
+>
+> **重点标签**：**动作生成** · **扩散模型** · **Transformer** · **文本** · **关键点** · **大规模数据** · **人体动作**
+>
+> **阅读状态**：已精读　·　**复现状态**：未开始
+<!-- AUTO-BASIC-INFO:END -->
+
 ## 本文贡献
 
 - 在 700 小时高质量光学 MoCap 上训练可扩展扩散模型，系统分析数据规模与模型规模对动作质量、泛化和约束精度的影响。
@@ -87,4 +105,5 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建精读条目，纳入中英对照附件和原论文重点图，解析 root/body 两阶段与控制条件。
