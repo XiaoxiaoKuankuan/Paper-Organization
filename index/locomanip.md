@@ -1,0 +1,5 @@
+# LocoManip
+
+<!-- 本文件由 scripts/build_index.py 自动生成，请勿手工修改。 -->
+
+暂无论文记录。

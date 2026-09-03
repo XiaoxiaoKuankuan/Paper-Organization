@@ -1,0 +1,19 @@
+# 本地论文原文、全文翻译和个人材料只在本机保存，不进入公开仓库。
+local_archive/*
+!local_archive/README.md
+
+# Python 运行缓存与测试缓存。
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+
+# 编辑器与系统临时文件。
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# 文档解析、渲染和索引构建产生的临时文件。
+tmp/
+output/

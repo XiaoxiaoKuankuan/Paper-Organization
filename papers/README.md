@@ -1,0 +1,18 @@
+# 论文总索引
+
+<!-- 本文件由 scripts/build_index.py 自动生成，请勿手工修改。 -->
+
+| ID | 论文 | 年份 | 出版信息 | 阅读状态 | 标签 |
+|---|---|---:|---|---|---|
+| P0001 | [Evolution of Humanoid Locomotion Control](../papers/P0001-evolution-humanoid-locomotion/README.md) | 2026 | Science Robotics, 11(117), eaed3973 | deep-read | `humanoid`, `locomotion`, `reinforcement-learning`, `physics-guidance`, `world-model` |
+| P0002 | [GENMO: A GENeralist Model for Human MOtion](../papers/P0002-genmo/README.md) | 2025 | ICCV 2025 (Highlight) | deep-read | `motion-generation`, `human-motion`, `multimodal`, `diffusion`, `transformer`, `text`, `music`, `video`, `smpl` |
+| P0003 | [GenTrack: Physical Alignment for Robot-Native Motion Generation and Zero-Shot Humanoid Tracking](../papers/P0003-gentrack/README.md) | 2026 | arXiv preprint arXiv:2608.01410 | deep-read | `motion-generation`, `motion-tracking`, `physics-feedback`, `reinforcement-learning`, `flow-matching`, `g1`, `sim2sim` |
+| P0004 | [GigaBrain-WBC-0.5: A Behavior World Model for Robust Whole-Body Control with Environment Interaction](../papers/P0004-gigabrain-wbc-0-5/README.md) | 2026 | Technical report, arXiv:2608.18234 | deep-read | `world-model`, `whole-body-control`, `motion-tracking`, `transformer`, `physics-feedback`, `g1`, `sim2real` |
+| P0005 | [HIL: Hybrid Imitation Learning for Dynamic Athletic Control](../papers/P0005-hil/README.md) | 2026 | ACM Transactions on Graphics (TOG), 2026 | deep-read | `imitation-learning`, `adversarial-learning`, `reinforcement-learning`, `motion-tracking`, `motion-prior`, `locomotion` |
+| P0006 | [HumanoidArena: Benchmarking Egocentric Hierarchical Whole-body Learning](../papers/P0006-humanoidarena/README.md) | 2026 | arXiv preprint arXiv:2606.17833 | deep-read | `dataset`, `benchmark`, `human-object-interaction`, `loco-manipulation`, `whole-body-control`, `g1`, `isaac-lab` |
+| P0007 | [InfiniteDance: Scalable 3D Dance Generation Towards in-the-wild Generalization](../papers/P0007-infinitedance/README.md) | 2026 | ECCV 2026 | deep-read | `motion-generation`, `music`, `human-motion`, `diffusion`, `transformer`, `motion-capture`, `large-scale-data` |
+| P0008 | [OMG: Omni-Modal Motion Generation for Generalist Humanoid Control](../papers/P0008-omg/README.md) | 2026 | arXiv preprint arXiv:2606.10340 | deep-read | `motion-generation`, `multimodal`, `diffusion`, `transformer`, `text`, `audio`, `music`, `g1`, `real-time` |
+| P0009 | [PhyGile: Physics-Prefix Guided Motion Generation for Agile General Humanoid Motion Tracking](../papers/P0009-phygile/README.md) | 2026 | IROS 2026 | deep-read | `motion-generation`, `physics-guidance`, `diffusion`, `motion-tracking`, `curriculum-learning`, `whole-body-control`, `g1`, `sim2real` |
+| P0010 | [RL from Physical Feedback: Aligning Large Motion Models with Humanoid Control](../papers/P0010-rlpf/README.md) | 2025 | ECCV 2026 | deep-read | `motion-generation`, `reinforcement-learning`, `physics-feedback`, `transformer`, `text`, `retargeting`, `motion-tracking`, `g1`, `sim2real` |
+| P0011 | [Do You Have Freestyle? Expressive Humanoid Locomotion via Audio Control](../papers/P0011-roboperform/README.md) | 2026 | CVPR 2026 Highlight | deep-read | `motion-generation`, `whole-body-control`, `audio`, `music`, `diffusion`, `distillation`, `motion-prior`, `g1`, `real-time`, `sim2real` |
+| P0012 | [SONIC: Supersizing Motion Tracking for Natural Humanoid Whole-Body Control](../papers/P0012-sonic/README.md) | 2025 | arXiv preprint arXiv:2511.07820 | deep-read | `motion-tracking`, `whole-body-control`, `motion-prior`, `large-scale-data`, `g1`, `sim2real`, `real-time`, `zero-shot`, `multimodal` |
