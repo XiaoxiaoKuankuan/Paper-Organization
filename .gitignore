@@ -1,4 +1,4 @@
-# 本地论文原文、全文翻译和个人材料只在本机保存，不进入公开仓库。
+# 原论文备份和私人材料只在本机保存；论文目录中的 attachments/ 明确纳入版本控制。
 local_archive/*
 !local_archive/README.md
 

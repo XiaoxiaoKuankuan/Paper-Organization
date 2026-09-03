@@ -1,6 +1,6 @@
 # 元数据规范
 
-论文 YAML front matter 是自动索引的唯一数据源。
+论文 YAML 元数据是自动索引的唯一数据源。为避免 GitHub 将其渲染成不易读的表格，论文页必须采用 `<!--`、`-->` 包住完整 YAML front matter；脚本仍能读取，页面只展示正文。
 
 ## 必填字段
 
@@ -31,6 +31,8 @@
 
 每项只允许 `full`、`partial`、`no`、`unknown`，并使用 `open_source_checked` 记录核验日期。
 
-## 本地材料
+## 附件与本地原文
 
-`local_materials` 是仓库根目录下的相对路径列表，统一指向 `local_archive/<ID>/`。这些文件存在于本机但不会被 Git 跟踪；使用 `--strict-local` 可检查路径是否存在。
+`local_materials` 只登记原论文备份，统一指向 `local_archive/<ID>/`。这些文件存在于本机但不受 Git 跟踪；使用 `--strict-local` 可检查路径。
+
+用户指定纳入知识库的方法详解、个人全文翻译和左右对照材料放入 `papers/<ID>-<slug>/attachments/`，直接在论文页标题下链接，不把易失效的本机绝对路径写入正文。

@@ -20,6 +20,10 @@
 - `inverse-kinematics`
 - `optimization`
 - `multimodal`
+- `masked-modeling`
+- `mixture-of-experts`
+- `contrastive-learning`
+- `reinforcement-fine-tuning`
 
 ## 任务
 
@@ -34,6 +38,8 @@
 - `human-object-interaction`
 - `navigation`
 - `pose-estimation`
+- `dance-generation`
+- `motion-editing`
 
 ## 输入与动作表征
 
@@ -42,6 +48,7 @@
 - `music`
 - `video`
 - `image`
+- `speech`
 - `smpl`
 - `smplx`
 - `keypoints`

@@ -7,10 +7,10 @@
 ## 馆藏概览
 
 <!-- AUTO-STATS:START -->
-- 论文：12 篇
+- 论文：38 篇
 - 项目：0 个
 - 数据集：0 个
-- 精读：12 篇
+- 精读：13 篇
 - 已进入复现流程：0 篇
 <!-- AUTO-STATS:END -->
 
@@ -25,6 +25,7 @@
 - [标签词表](TAGS.md)
 - [维护流程](docs/maintenance-workflow.md)
 - [元数据规范](docs/metadata-schema.md)
+- [飞书阅读清单覆盖表](docs/feishu-reading-lists.md)
 
 ## 核心分类
 
@@ -42,16 +43,16 @@
 ## 最近更新
 
 <!-- AUTO-RECENT:START -->
-- 2026-09-03 [P0012 — SONIC: Supersizing Motion Tracking for Natural Humanoid Whole-Body Control](papers/P0012-sonic/README.md)
-- 2026-09-03 [P0011 — Do You Have Freestyle? Expressive Humanoid Locomotion via Audio Control](papers/P0011-roboperform/README.md)
-- 2026-09-03 [P0010 — RL from Physical Feedback: Aligning Large Motion Models with Humanoid Control](papers/P0010-rlpf/README.md)
-- 2026-09-03 [P0009 — PhyGile: Physics-Prefix Guided Motion Generation for Agile General Humanoid Motion Tracking](papers/P0009-phygile/README.md)
-- 2026-09-03 [P0008 — OMG: Omni-Modal Motion Generation for Generalist Humanoid Control](papers/P0008-omg/README.md)
-- 2026-09-03 [P0007 — InfiniteDance: Scalable 3D Dance Generation Towards in-the-wild Generalization](papers/P0007-infinitedance/README.md)
-- 2026-09-03 [P0006 — HumanoidArena: Benchmarking Egocentric Hierarchical Whole-body Learning](papers/P0006-humanoidarena/README.md)
-- 2026-09-03 [P0005 — HIL: Hybrid Imitation Learning for Dynamic Athletic Control](papers/P0005-hil/README.md)
-- 2026-09-03 [P0004 — GigaBrain-WBC-0.5: A Behavior World Model for Robust Whole-Body Control with Environment Interaction](papers/P0004-gigabrain-wbc-0-5/README.md)
-- 2026-09-03 [P0003 — GenTrack: Physical Alignment for Robot-Native Motion Generation and Zero-Shot Humanoid Tracking](papers/P0003-gentrack/README.md)
+- 2026-09-03 [P0038 — TextOp：实时交互式文本驱动人形机器人动作生成与控制](papers/P0038-textop/README.md)
+- 2026-09-03 [P0037 — Odoriko：形状感知的多模态人体动作扩散框架](papers/P0037-odoriko/README.md)
+- 2026-09-03 [P0036 — OmniMotion-X：多用途多模态全身动作生成](papers/P0036-omnimotion-x/README.md)
+- 2026-09-03 [P0035 — OpenDance：基于大规模互联网数据的多模态可控三维舞蹈生成](papers/P0035-opendance/README.md)
+- 2026-09-03 [P0034 — 动作的语言：统一三维人体动作的言语与非言语表达](papers/P0034-language-of-motion/README.md)
+- 2026-09-03 [P0033 — VersatileMotion（原 MotionLLaMA）：动作合成与理解统一框架](papers/P0033-versatilemotion/README.md)
+- 2026-09-03 [P0032 — UniMuMo：统一文本、音乐与动作生成](papers/P0032-unimumo/README.md)
+- 2026-09-03 [P0031 — MotionCraft：使用即插即用多模态控制生成全身动作](papers/P0031-motioncraft/README.md)
+- 2026-09-03 [P0030 — M³GPT：用于动作理解与生成的高级多模态多任务框架](papers/P0030-m3gpt/README.md)
+- 2026-09-03 [P0029 — LMM：用于统一多模态动作生成的大动作模型](papers/P0029-lmm/README.md)
 <!-- AUTO-RECENT:END -->
 
 ## 使用方式
@@ -63,10 +64,10 @@ python3 scripts/build_index.py
 python3 scripts/build_index.py --check
 ```
 
-新增论文时先复制 [论文模板](templates/paper-template.md)，只编辑论文档案的 YAML 和正文，再运行校验与索引构建。`local_archive/` 中的原论文、全文翻译和方法详解默认不会被 Git 跟踪。
+新增论文时先复制 [论文模板](templates/paper-template.md)，只编辑论文档案的隐藏 YAML 元数据和正文，再运行校验与索引构建。方法详解与个人翻译放入论文目录的 `attachments/`，原论文备份仍放在不受 Git 跟踪的 `local_archive/`。
 
 ## 内容边界
 
-- 公开仓库保存个人整理、结构化元数据、原创图解和公开链接。
-- 出版社 PDF、论文原文、全文翻译及可能受版权约束的二进制材料只存本地档案。
+- 公开仓库保存结构化元数据、深度阅读笔记、原论文重点图、用户指定的方法详解与个人翻译附件及公开链接。
+- 出版社原始 PDF 和私人实验材料只存本地档案；论文重点图注明原始图号和出处。
 - “静态阅读”“代码可运行”“仿真复现”“实机验证”是不同证据等级，必须分别记录。

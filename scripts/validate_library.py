@@ -1,10 +1,10 @@
 """
-校验论文知识库的目录、元数据、受控词表、链接和本地档案契约。
+校验论文知识库的目录、元数据、受控词表、链接和公开附件契约。
 
 脚本逐个读取 ``papers/Pxxxx-short-name/README.md``，检查永久 ID 与目录一致、
 ID/题名不重复、必填字段完整、主分类和状态枚举合法、标签来自 ``TAGS.md``、
-URL 使用 HTTPS、本地材料位于匹配的 ``local_archive/<ID>/``。默认只对缺失的
-本地材料给出警告；使用 ``--strict-local`` 时将其视为错误，适合资料完整的本机。
+URL 使用 HTTPS。若保留原论文的本机路径，则仅做本地档案契约检查；方法详解与
+全文翻译应作为论文目录下的公开附件，由 Markdown 链接检查确保真实存在。
 此外会遍历公开 Markdown，检查导航、模板和论文页中的相对链接是否指向现存目标。
 
 输出为逐项中文诊断和最终错误/警告计数。脚本完全只读，不修改 Markdown、档案
@@ -129,6 +129,17 @@ def main() -> int:
     for record in records:
         meta = record.metadata
         label = str(record.readme.relative_to(root))
+        page_text = record.readme.read_text(encoding="utf-8")
+        if not page_text.startswith("<!--\n---\n"):
+            errors.append(f"{label} 必须使用 HTML 注释隐藏 YAML 元数据，避免 GitHub 渲染成表格")
+        if "```mermaid" in page_text:
+            errors.append(f"{label} 不应使用自绘 Mermaid 代替原论文重点图")
+        if "## 本地材料" in page_text:
+            errors.append(f"{label} 不应展示本机材料路径；请改为论文附件链接")
+        if "## 本文贡献" not in page_text:
+            errors.append(f"{label} 缺少“本文贡献”章节")
+        if "## 研究方法详细解读" not in page_text:
+            errors.append(f"{label} 缺少“研究方法详细解读”章节")
         directory_match = PAPER_DIR_PATTERN.fullmatch(record.directory.name)
         expected_id = directory_match.group(1) if directory_match else ""
         missing = sorted(REQUIRED_FIELDS - set(meta))

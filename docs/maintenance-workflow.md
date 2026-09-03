@@ -6,10 +6,11 @@
 2. 在现有档案中按题名、arXiv ID、DOI、项目页和 GitHub URL 查重。
 3. 选择下一个未使用的 `Pxxxx`，复制 `templates/paper-template.md` 到 `papers/Pxxxx-short-name/README.md`。
 4. 从原论文、补充材料、官方项目页与官方仓库核验元数据。
-5. 复制本地原文和翻译到 `local_archive/Pxxxx/`，在论文 YAML 中登记相对路径。
-6. 依据材料撰写精读内容；事实、材料解读与个人判断分开。
-7. 在论文页和根 `CHANGELOG.md` 中记录本次更新。
-8. 执行：
+5. 原论文备份放在 `local_archive/Pxxxx/`；方法详解、个人全文翻译和左右对照材料放入论文目录的 `attachments/` 并建立正文链接。
+6. 从原论文提取总览图、方法图和必要的关键结果图到 `figures/`，保留原论文图号并写中文图解，不使用自绘图代替。
+7. 深读论文与已有讲解文档，完成“本文贡献”和“研究方法详细解读”；事实、材料解读与个人判断分开。
+8. 在论文页和根 `CHANGELOG.md` 中记录本次更新。
+9. 执行：
 
 ```bash
 python3 scripts/validate_library.py --strict-local
@@ -25,5 +26,5 @@ git diff --check
 ## GPT/Codex 维护提示词
 
 ```text
-请按仓库 AGENTS.md 维护知识库。先检查 Git 状态并查重；读取本地材料后，以原论文、官方项目页和官方仓库核验元数据。未知项写 null，不得猜测。每篇论文只选一个主分类，标签只能来自 TAGS.md。受版权约束的原文和完整翻译只放 local_archive，不提交 Git。完成后更新论文页与 CHANGELOG.md，运行 validate_library.py --strict-local、build_index.py、build_index.py --check 和 git diff --check，并分别报告内容校验、索引校验与实际复现边界。
+请按仓库 AGENTS.md 维护知识库。先检查 Git 状态并查重；深读原论文与已有方法讲解/翻译材料，再以原论文、官方项目页和官方仓库核验元数据。未知项写 null，不得猜测。每篇论文只选一个主分类，重点标签只能来自 TAGS.md。隐藏 YAML 元数据，正文使用中文栏目；把方法详解和个人翻译放进论文目录 attachments/，从原论文提取重点图到 figures/ 并写中文详解，不用自绘图替代。完成后更新论文页与 CHANGELOG.md，运行 validate_library.py --strict-local、build_index.py、build_index.py --check 和 git diff --check，并分别报告内容校验、索引校验与实际复现边界。
 ```

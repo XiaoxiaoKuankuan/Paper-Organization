@@ -1,8 +1,8 @@
 """
 论文知识库脚本的公共基础模块。
 
-本文件集中定义八个主分类、阅读与复现状态枚举，并负责扫描
-``papers/Pxxxx-short-name/README.md``、读取 YAML front matter 和规范化日期。
+本文件集中定义八个主分类、中文标签显示名、阅读与复现状态枚举，并负责扫描
+``papers/Pxxxx-short-name/README.md``、读取隐藏式 YAML front matter 和规范化日期。
 索引构建器与校验器共用这里的实现，避免两个脚本对字段含义产生漂移。
 
 输入是仓库根目录或单个 Markdown 路径；输出是保持原始字段的 Python 字典。
@@ -35,6 +35,78 @@ CATEGORIES: dict[str, str] = {
     "engineering": "工程与实机部署",
 }
 
+# 元数据继续使用稳定的英文 slug，面向读者的索引统一显示中文名称。
+TAG_LABELS: dict[str, str] = {
+    "reinforcement-learning": "强化学习",
+    "imitation-learning": "模仿学习",
+    "adversarial-learning": "对抗学习",
+    "diffusion": "扩散模型",
+    "flow-matching": "流匹配",
+    "transformer": "Transformer",
+    "world-model": "世界模型",
+    "motion-prior": "运动先验",
+    "physics-guidance": "物理引导",
+    "physics-feedback": "物理反馈",
+    "curriculum-learning": "课程学习",
+    "distillation": "蒸馏",
+    "autoregressive": "自回归",
+    "inverse-kinematics": "逆运动学",
+    "optimization": "优化",
+    "multimodal": "多模态",
+    "masked-modeling": "掩码建模",
+    "mixture-of-experts": "混合专家",
+    "contrastive-learning": "对比学习",
+    "reinforcement-fine-tuning": "强化学习微调",
+    "dataset": "数据集",
+    "benchmark": "基准",
+    "motion-generation": "动作生成",
+    "retargeting": "重定向",
+    "motion-tracking": "动作跟踪",
+    "locomotion": "运动控制",
+    "whole-body-control": "全身控制",
+    "loco-manipulation": "移动操作",
+    "human-object-interaction": "人-物交互",
+    "navigation": "导航",
+    "pose-estimation": "姿态估计",
+    "dance-generation": "舞蹈生成",
+    "motion-editing": "动作编辑",
+    "text": "文本",
+    "audio": "音频",
+    "music": "音乐",
+    "video": "视频",
+    "image": "图像",
+    "speech": "语音",
+    "smpl": "SMPL",
+    "smplx": "SMPL-X",
+    "keypoints": "关键点",
+    "robot-state": "机器人状态",
+    "velocity-command": "速度指令",
+    "latent-motion": "动作潜变量",
+    "humanoid": "人形机器人",
+    "g1": "Unitree G1",
+    "h1": "Unitree H1",
+    "h1-2": "Unitree H1-2",
+    "biped": "双足机器人",
+    "human-motion": "人体动作",
+    "isaac-lab": "Isaac Lab",
+    "isaac-gym": "Isaac Gym",
+    "mujoco": "MuJoCo",
+    "genesis": "Genesis",
+    "sim2sim": "Sim2Sim",
+    "sim2real": "Sim2Real",
+    "real-time": "实时",
+    "onnx": "ONNX",
+    "tensorrt": "TensorRT",
+    "ros2": "ROS 2",
+    "motion-capture": "动作捕捉",
+    "synthetic-data": "合成数据",
+    "large-scale-data": "大规模数据",
+    "physical-plausibility": "物理合理性",
+    "diversity": "多样性",
+    "generalization": "泛化",
+    "zero-shot": "零样本",
+}
+
 READ_STATUSES = {"unread", "skimmed", "read", "deep-read"}
 REPRODUCE_STATUSES = {
     "not-started",
@@ -64,17 +136,32 @@ def repository_root(script_file: str) -> Path:
 
 
 def read_front_matter(path: Path) -> dict[str, Any]:
-    """读取 Markdown 文件开头的 YAML front matter。"""
+    """读取 Markdown 文件开头的隐藏式或传统 YAML front matter。
+
+    论文页把 YAML 包在 HTML 注释内，避免 GitHub 把元数据渲染成难读的表格；
+    模板与其他旧文件仍可使用传统的首行 ``---``，从而保持向后兼容。
+    """
 
     text = path.read_text(encoding="utf-8")
     lines = text.splitlines()
-    if not lines or lines[0].strip() != "---":
+    if not lines:
+        raise ValueError(f"{path} 为空，无法读取 YAML 元数据")
+    start = 0
+    if lines[0].strip() == "<!--":
+        if len(lines) < 2 or lines[1].strip() != "---":
+            raise ValueError(f"{path} 的隐藏元数据缺少起始 YAML 分隔符 ---")
+        start = 1
+    elif lines[0].strip() != "---":
         raise ValueError(f"{path} 缺少起始 YAML 分隔符 ---")
     try:
-        end = next(index for index, line in enumerate(lines[1:], start=1) if line.strip() == "---")
+        end = next(
+            index for index, line in enumerate(lines[start + 1 :], start=start + 1) if line.strip() == "---"
+        )
     except StopIteration as exc:
         raise ValueError(f"{path} 缺少结束 YAML 分隔符 ---") from exc
-    data = yaml.safe_load("\n".join(lines[1:end]))
+    if start == 1 and (end + 1 >= len(lines) or lines[end + 1].strip() != "-->"):
+        raise ValueError(f"{path} 的隐藏 YAML 元数据缺少 HTML 注释结束符 -->")
+    data = yaml.safe_load("\n".join(lines[start + 1 : end]))
     if not isinstance(data, dict):
         raise ValueError(f"{path} 的 YAML front matter 必须是映射")
     return data
@@ -107,3 +194,10 @@ def markdown_escape(value: Any) -> str:
     """转义表格单元格中会破坏 Markdown 结构的字符。"""
 
     return str(value).replace("|", "\\|").replace("\n", " ").strip()
+
+
+def display_tag(tag: Any) -> str:
+    """把规范标签转换为中文显示名，未登记映射时保留原 slug。"""
+
+    normalized = str(tag).strip()
+    return TAG_LABELS.get(normalized, normalized)

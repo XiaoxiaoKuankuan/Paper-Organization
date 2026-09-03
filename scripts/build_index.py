@@ -18,7 +18,15 @@ from pathlib import Path
 import sys
 from typing import Iterable
 
-from library_common import CATEGORIES, PaperRecord, display_date, iter_papers, markdown_escape, repository_root
+from library_common import (
+    CATEGORIES,
+    PaperRecord,
+    display_date,
+    display_tag,
+    iter_papers,
+    markdown_escape,
+    repository_root,
+)
 
 
 GENERATED_NOTICE = "<!-- 本文件由 scripts/build_index.py 自动生成，请勿手工修改。 -->"
@@ -40,19 +48,22 @@ def paper_table(root: Path, records: Iterable[PaperRecord], from_dir: Path) -> s
     if not rows:
         return "暂无论文记录。"
     lines = [
-        "| ID | 论文 | 年份 | 出版信息 | 阅读状态 | 标签 |",
-        "|---|---|---:|---|---|---|",
+        "| ID | 中文题目 | 英文题目 | 年份 | 出版信息 | 重点标签 |",
+        "|---|---|---|---:|---|---|",
     ]
     for record in rows:
         meta = record.metadata
         paper_id = markdown_escape(meta.get("id", ""))
-        title = markdown_escape(meta.get("title_en", "待补充"))
+        title_zh = markdown_escape(meta.get("title_zh", "待补充"))
+        title_en = markdown_escape(meta.get("title_en", "待补充"))
         venue = markdown_escape(meta.get("venue", "待核验"))
         year = markdown_escape(meta.get("year", "待核验"))
-        read_status = markdown_escape(meta.get("read_status", "unread"))
-        tags = ", ".join(f"`{markdown_escape(tag)}`" for tag in meta.get("tags", [])) or "-"
+        tags = meta.get("tags", [])[:3]
+        tag_text = " · ".join(f"**{markdown_escape(display_tag(tag))}**" for tag in tags) or "-"
         link = paper_link(root, record, from_dir)
-        lines.append(f"| {paper_id} | [{title}]({link}) | {year} | {venue} | {read_status} | {tags} |")
+        lines.append(
+            f"| {paper_id} | **[{title_zh}]({link})** | {title_en} | {year} | {venue} | {tag_text} |"
+        )
     return "\n".join(lines)
 
 
@@ -111,7 +122,7 @@ def build_outputs(root: Path, records: list[PaperRecord]) -> dict[Path, str]:
             link = paper_link(root, item, root)
             recent_lines.append(
                 f"- {display_date(meta.get('updated'))} [{markdown_escape(meta.get('id'))} — "
-                f"{markdown_escape(meta.get('title_en'))}]({link})"
+                f"{markdown_escape(meta.get('title_zh'))}]({link})"
             )
         recent_text = "\n".join(recent_lines)
     else:
