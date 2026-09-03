@@ -53,33 +53,49 @@ updated: 2026-09-03
 
 ## 本文贡献
 
-- 提出 HoMi Tokenizer，以单码本同时编码身体和手部，在重建精度上接近多层 RVQ，建立全身统一动作 token。
-- 基于 LLaMA-3.2/LoRA 统一文本、音乐、语音、单人/双人动作的生成与理解任务，并在后续版本将 VQ-VAE 与 flow matching 结合提升连续细节。
-- 构建 MotionHub：约 13.15 万动作、26.99 万文本和 3659 条音频，覆盖多任务微调，并公开代码与数据。
+- 提出 FlowVQ：用固定动作码承载离散语义，再以 token 条件的 flow-matching decoder 恢复连续细节，降低普通 VQ 解码的量化上限。
+- 用可扩展的 decoder-only Transformer 统一文本、音乐、语音、单人/多人动作的生成与理解，并以通用预训练、通用 SFT、专项 SFT 区分广度和专项性能。
+- 构建 MotionHub：596.48 小时、358,847 条单人和 19,633 条多人动作片段，并提供多粒度文字、音频与九项标准任务。
 
 ## 研究问题
 
-动作 LLM 的瓶颈一端是手部/身体码本不统一，另一端是离散 token 丢失连续细节。VersatileMotion 先用 HoMi 建共享表示，再通过 LLM 建模任务关系，并以 flow matching 补偿离散解码上限。
+动作 LLM 的瓶颈一端是跨数据集、跨人数和跨模态任务缺少统一消息/评测接口，另一端是离散 token 丢失连续细节。VersatileMotion 用 MotionHub 建任务与数据底座，以 FlowVQ 组合离散语义和连续流恢复，再由可扩展 GPT 建模任意输入/输出模态。
 
 ## 原论文重点图
 
 ![VersatileMotion 总体框架](figures/key-figure.png)
 
-**图 1：统一动作 tokenizer、LLM 与生成/理解任务（原论文 Figure 1 所在页）。** 动作、音频和文本转为对应 token，LLM 通过指令选择任务；HoMi 负责全身离散表示，连续生成/重建模块恢复动作细节。
+**图 1：统一动作 tokenizer、LLM 与生成/理解任务（原论文 Figure 1 所在页）。** 动作、音频和文本转为对应 token，LLM 通过指令选择任务；FlowVQ 以固定动作码提供语义条件，并由 flow-matching decoder 恢复连续动作细节。
 
 ## 研究方法详细解读
 
-### HoMi Tokenizer
+### 总体流程：FlowVQ 负责动作词表，GPT 负责跨模态任务
 
-身体与手部共享单一码本，但编码器以层级/部位结构避免大关节主导量化。相对多码本 RVQ，单码本缩短序列和输出空间；必须同时检查手部误差、码本利用率与身体重建。
+VersatileMotion 先把 MotionHub 中单人/多人全身动作训练成 FlowVQ token：VQ-VAE 产生离散语义码，flow-matching decoder 在码条件下恢复高保真连续轨迹；文本使用子词 tokenizer，音频使用另一个 VQ-VAE。三类 token 被写成统一的“Instruction—Condition—Reply”消息，decoder-only GPT 先做通用预训练，再做九类 benchmark 的 generalist SFT，最后可按单一领域做 specialist SFT。推理时 GPT 生成 reply token，动作回复由 FlowVQ 解码。
 
-### LLM 与 LoRA 任务统一
+### MotionHub 数据和全局多人表示
 
-预训练 LLM 接收动作特殊 token 和任务指令，LoRA 降低多任务微调成本。任务包括补全、预测、文本动作、音乐舞蹈、语音手势、双人交互和反向描述；数据采样比例决定哪些能力保留。
+MotionHub 统一文本、语音、音乐、单人/多人动作及 interaction metadata，并为生成与理解构造任务对。动作表示保留世界位置关系，多个 agent 各自以 Motion BOS/EOS 包裹，中间用 `AGENT_SEP`，所以 token 顺序隐式保留多人空间关系而无需固定人数输出 head。数据处理与评测必须保留同一全局坐标、agent 顺序和时间对齐，否则多人 token 的相对几何语义会被破坏。
 
-### Flow matching 连续细化
+### FlowVQ 第一阶段：离散语义编码
 
-后续 VersatileMotion 版本将离散语义与连续 flow 结合：LLM 决定高层动作内容，flow 模块在条件轨迹上恢复细粒度连续姿态。复现必须区分旧 MotionLLaMA 与新版 VersatileMotion 配置/checkpoint。
+Motion VQ-VAE 的 encoder `E` 把连续动作压成 latent，码本 `Q` 最近邻量化为序列 `z`，普通 decoder 先按动作重建、码本和 commitment 目标训练。离散码缩短 LLM 序列并提供分类词表，但 VQ 重建容易平滑速度、手部和接触。训练完成后 encoder 与码本冻结，为后续 flow decoder 和 GPT 提供不再漂移的动作符号。
+
+### FlowVQ 第二阶段：连续流细化
+
+固定 `E/Q`，把干净动作按噪声日程扰动成 `x_t`；Transformer flow decoder 以 `x_t`、离散码 `z` 和时刻 `t` 为输入，经 self/cross-attention预测速度场 `v≈x-x_t`，最小化 L2 flow-matching loss。推理从噪声沿该速度场积分，在 token 所规定的宏观动作附近恢复平滑轨迹。它将离散规划效率和连续细节结合，token 错误仍会限制可恢复内容，但不必让 GPT 直接输出每帧浮点姿态。
+
+### 统一消息与 decoder-only Transformer
+
+文本、`<AUD_x>` 和 `<MOT_y>` 均进入同一词表，模态序列有各自 BOS/EOS。每条训练样本由短自然语言 instruction、任意组合的 condition 和 reply 构成；训练随机插入时长、风格、多 agent 等可选条件。GPT 对整条序列因果建模，但 SFT 只监督 reply，结构上比 T5 encoder–decoder 更容易扩到大参数和现有 LLM 预训练框架，也使任意模态都能成为输入或输出。
+
+### 三阶段语言模型训练
+
+Generalist Pretraining 从 MotionHub metadata 自动组合 text/audio/motion 的翻译、补全、无条件和多人任务，对全消息做 next-token 学习，建立统一先验；Generalist SFT 在九个标准 benchmark 的 instruction-condition→reply 上只计算回复损失，校准任务格式；Specialist SFT 再从通才 checkpoint 针对单一领域训练，以牺牲部分广度换取更高专项指标。三种 checkpoint 目标不同，复现不能把 specialist 结果写成单一通才同时达到。
+
+### 推理与边界
+
+模型可输出文本、音频或任意人数动作 token，FlowVQ 将动作回复细化为连续全局轨迹。自回归 reply 受上下文长度和错误累积影响，flow 只修连续性、不验证接触动力学。论文是人体多模态框架，不是机器人控制器；机器人使用需在连续输出后做骨架映射、碰撞/接触检查和跟踪，并明确 generalist/specialist checkpoint。
 
 ## 实验结果与结论
 
@@ -88,7 +104,7 @@ updated: 2026-09-03
 ## 局限与复现提醒
 
 - 仓库/论文存在 MotionLLaMA→VersatileMotion 更名与版本演进，需锁定 commit、配置和 checkpoint。
-- 单码本平均重建好不代表手指等小部位无损，需分部位指标。
+- FlowVQ 的平均重建好不代表手指、接触或多人相对位置无损，仍需分部位和交互指标。
 - 机器人链路还需重定向、接触修正和 GMT。
 
 ## 阅读与复现状态
@@ -104,5 +120,6 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：依据原论文方法与训练章节，扩展总体流程、数据表征、模块信息流、训练目标、推理/部署及实现边界。
 - 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
-- 2026-09-03：新建条目，明确 MotionLLaMA/VersatileMotion 名称演进，解析 HoMi、LLM 和 flow matching。
+- 2026-09-03：新建条目，明确 MotionLLaMA/VersatileMotion 名称演进；本次按当前论文版本将旧 HoMi 描述校正为 FlowVQ、MotionHub 与三阶段 LLM 训练。

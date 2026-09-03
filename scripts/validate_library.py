@@ -1,11 +1,14 @@
 """
-校验论文知识库的目录、元数据、受控词表、链接和公开附件契约。
+校验论文知识库的目录、元数据、受控词表、链接、公开附件和精读深度契约。
 
 脚本逐个读取 ``papers/Pxxxx-short-name/README.md``，检查永久 ID 与目录一致、
 ID/题名不重复、必填字段完整、主分类和状态枚举合法、标签来自 ``TAGS.md``、
 URL 使用 HTTPS。若保留原论文的本机路径，则仅做本地档案契约检查；方法详解与
 全文翻译应作为论文目录下的公开附件，由 Markdown 链接检查确保真实存在。
 此外会遍历公开 Markdown，检查导航、模板和论文页中的相对链接是否指向现存目标。
+“研究方法详细解读”还必须达到最低结构深度：包含总体链路、至少六个三级小节、
+不少于一千个去空白字符，并同时说明训练与推理。该阈值只用于拦截过度简写，
+通过不代表论文事实自动正确，仍需维护者逐篇对照原论文和本地译解材料复核。
 
 输出为逐项中文诊断和最终错误/警告计数。脚本完全只读，不修改 Markdown、档案
 或 Git 状态；结构通过只说明知识库契约一致，不代表论文结论、代码复现或实机安全。
@@ -58,6 +61,12 @@ OPEN_SOURCE_FIELDS = {
 }
 URL_FIELDS = {"paper_url", "project_url", "github_url", "video_url"}
 MARKDOWN_LINK_PATTERN = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
+METHOD_SECTION_PATTERN = re.compile(
+    r"^## 研究方法详细解读\s*$\n(?P<body>.*?)(?=^## 实验结果与结论\s*$)",
+    flags=re.MULTILINE | re.DOTALL,
+)
+METHOD_MIN_COMPACT_CHARS = 1000
+METHOD_MIN_SUBSECTIONS = 6
 
 
 def controlled_tags(path: Path) -> set[str]:
@@ -76,6 +85,35 @@ def valid_https_url(value: Any) -> bool:
         return False
     parsed = urlparse(value)
     return parsed.scheme == "https" and bool(parsed.netloc)
+
+
+def validate_method_depth(label: str, page_text: str) -> list[str]:
+    """校验方法解读是否覆盖总体链路、训练和推理，而非停留在摘要长度。"""
+
+    errors: list[str] = []
+    match = METHOD_SECTION_PATTERN.search(page_text)
+    if match is None:
+        return [f"{label} 无法定位完整的研究方法详细解读区间，请检查其与实验结果章节的标题"]
+
+    body = match.group("body")
+    headings = re.findall(r"^###\s+(.+?)\s*$", body, flags=re.MULTILINE)
+    compact_length = len(re.sub(r"\s+", "", body))
+    if compact_length < METHOD_MIN_COMPACT_CHARS:
+        errors.append(
+            f"{label} 的研究方法详细解读过短：{compact_length} 个去空白字符，"
+            f"至少需要 {METHOD_MIN_COMPACT_CHARS} 个"
+        )
+    if len(headings) < METHOD_MIN_SUBSECTIONS:
+        errors.append(
+            f"{label} 的研究方法详细解读只有 {len(headings)} 个三级小节，"
+            f"至少需要 {METHOD_MIN_SUBSECTIONS} 个"
+        )
+    if not headings or "总体" not in headings[0]:
+        errors.append(f"{label} 的研究方法详细解读应以含“总体”的流程/分析框架小节开篇")
+    for keyword in ("训练", "推理"):
+        if keyword not in body:
+            errors.append(f"{label} 的研究方法详细解读没有说明“{keyword}”流程")
+    return errors
 
 
 def validate_internal_markdown_links(root: Path) -> list[str]:
@@ -141,6 +179,8 @@ def main() -> int:
             errors.append(f"{label} 缺少“本文贡献”章节")
         if "## 研究方法详细解读" not in page_text:
             errors.append(f"{label} 缺少“研究方法详细解读”章节")
+        else:
+            errors.extend(validate_method_depth(label, page_text))
         if render_basic_info(meta) not in page_text:
             errors.append(f"{label} 缺少基本信息卡，或正文作者/机构/时间/出版信息与元数据不一致")
         directory_match = PAPER_DIR_PATTERN.fullmatch(record.directory.name)

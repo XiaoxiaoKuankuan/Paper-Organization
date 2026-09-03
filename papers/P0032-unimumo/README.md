@@ -69,17 +69,33 @@ updated: 2026-09-03
 
 ## 研究方法详细解读
 
-### 弱配对数据构建
+### 总体流程：对齐弱配对，再共享音乐码本联合生成
 
-系统从独立音乐和动作中提取视觉/声学 beat，再用 DTW 拉伸时间轴使节拍对齐。该过程扩展数据量，但“节拍相同”并不保证风格/语义匹配，因此属于带噪弱监督。
+UniMuMo 先从未配对音乐和动作中检测节拍，用 DTW 拉伸动作形成同步对；Stage 1 冻结 Encodec 音乐 RVQ，只训练动作 encoder/decoder，让动作也使用同一残差码本；Stage 2 从 MusicGen 初始化 Transformer，以文本为条件并行预测音乐和动作两条 token stream；Stage 3 冻结大部分生成主干，将其改作全注意力特征 extractor，训练 T5 decoder 输出音乐或动作 caption。三阶段分别解决表示对齐、双向生成和理解。
 
-### 共享码本与并行生成
+### 节拍弱配对与文本合成
 
-动作 encoder 把运动映射到预训练音乐 codec 的多层残差码本特征空间；decoder 恢复动作。音乐和动作 token 在每个时间块并行预测，而非把完整音乐序列放在动作之前，减少单向偏置。
+音乐从声谱 onset 得到二值 beat；动作由 directogram 的负一阶差分得到 motion flux，筛峰并用动态规划选择强且近似等间隔的视觉 beat。DTW 在两条 beat 序列间求匹配路径，只插值/拉伸动作去适配稳定音乐，避免扭曲音频听感。缺少 caption 时，一路用音乐理解模型从音频描述，另一路让 LLM 依据 genre/tempo metadata 合成，兼顾准确度与措辞多样性；这仍是带噪弱监督。
 
-### 跨模态注意力与专家
+### Stage 1：共用冻结的 Residual VQ
 
-各模态保留自身因果流，同时允许同步位置交换信息；MoE 为音乐/动作分配专门容量。文本 encoder 提供全局语义，模型通过掩码决定执行 music↔motion、text→music/motion 等任务。
+Encodec 把波形编码为 `d×Tfr` 特征，并经 `K` 层 RVQ 得到同形状音乐 token。动作 encoder 将 `dm×Tfm` 映射到完全相同的 `d×Tfr`，直接使用冻结音乐 RVQ 量化，动作 decoder 再恢复姿态；只以动作 L2 重建与系数 0.02 的 commitment 更新动作两端。共享的不是音乐/动作整数序列本身，而是码本 embedding 和时间栅格，使预训练 MusicGen 权重可以合理初始化下一阶段。
+
+### Stage 2：双流并行自回归
+
+音乐、动作的 `K×S` RVQ token 分别应用 MusicGen delay pattern，再沿时间维拼成两半。cross-modal causal mask 的四个象限均为下三角，使时刻 `t` 的两模态只能读取双方过去；一次 forward 同时计算音乐与动作下一 token 交叉熵，权重 `μ=0.85` 偏向保护音乐。推理可在同一时间步并行采样两条流，也可钳制整条音乐只生成动作，或反向由动作生成音乐。
+
+### 模态专用容量与文本条件
+
+为避免音乐预训练能力被动作污染，动作使用独立 embedding、独立分类 head，并在每层增加 motion FFN；音乐和动作位置编码各自从 1 开始，保持同步而非把动作当音乐后半段。新增动作模块从对应 MusicGen 部件初始化。音乐描述和动作描述分别经 T5 encoder，classifier-free dropout 独立进行，cross-attention mask 只让各 stream读取自己的文字条件，由共享 self-attention交换跨模态时序。
+
+### Stage 3：从生成器变为 caption encoder
+
+生成主干原本使用 causal attention，不适合完整理解输入。论文添加由 causal 权重初始化的 trainable full-self-attention，只更新这些层和新 T5 decoder，其余 music-motion decoder 冻结；同时去掉两模态交叉区域，并随机将整条音乐或动作置空，使单模态也能 caption。这样 Stage 2 的时序特征被复用，但理解任务不会反向破坏联合生成器。
+
+### 推理能力与边界
+
+同一模型可执行 text→music+motion、music→motion、motion→music 及文字描述，条件缺失通过固定一条 stream 或 mask 实现。共享码本和 beat 对齐不保证语义/舞种真实匹配，DTW 还可能改变动作动力学。输出是人体动作与音频，机器人使用需重新采样、重定向、物理筛选和低层控制；应分别评价音频质量、动作质量与跨模态同步。
 
 ## 实验结果与结论
 
@@ -104,5 +120,6 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：依据原论文方法与训练章节，扩展总体流程、数据表征、模块信息流、训练目标、推理/部署及实现边界。
 - 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，解析节拍弱配对、共享残差码本和并行生成。

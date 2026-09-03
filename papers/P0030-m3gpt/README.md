@@ -69,17 +69,33 @@ LLM 对文本熟悉，却不了解音乐/动作 token 的结构；直接把三�
 
 ## 研究方法详细解读
 
-### 多模态 tokenizer
+### 总体流程：三套 token、一个 T5、三个训练阶段
 
-动作和音乐使用各自 VQ 模型，文本沿用语言词表；所有索引通过类型/范围映射进共享 embedding。动作与舞蹈共享 tokenizer 以促进迁移，音乐保留独立声学码本。
+M³GPT 先把人体动作/舞蹈与音乐离散化，再扩展 T5 词表以同时容纳文字、动作码和音乐码。Stage 1 训练共享动作 tokenizer，音乐直接采用预训练 Jukebox tokenizer；Stage 2 以多种模态翻译任务做对齐预训练，并继续调整动作 decoder；Stage 3 用自然语言指令微调任务选择。推理时 instruction 决定输入/输出模态，T5 自回归生成目标 token；动作 token 由动作 decoder 还原姿态，音乐 token 由 Jukebox decoder 还原音频。
 
-### 离散—连续联合优化
+### 动作与音乐 tokenizer
 
-LLM 先预测动作 token，再经可微近似/对应 embedding 输入 decoder 重建连续动作；连续损失对姿态细节提供更直接梯度。实现必须防止 decoder 绕开离散语义或因 teacher forcing 造成训练—推理不一致。
+动作 VQ-VAE 用 1D convolution encoder 将 `Tm×dm` 压成 latent，最近邻码本量化，deconvolution decoder 重建；重建 L1、embedding 和 commitment 共同训练。普通动作与舞蹈共享码本，使 text-to-motion 学到的姿态语义能迁移到 music-to-dance。音乐 tokenizer 采用在约 120 万首歌曲上训练的 Jukebox VQ-VAE，将音频切成 5 秒片段编码；数据有限时不重新学习声学码本，避免音乐重建成为瓶颈。
 
-### 文本桥接多任务
+### 统一词表与自回归主干
 
-music-to-text 与 text-to-dance 把音乐和动作分别对齐到 LLM 擅长的语义空间，再与 music-to-dance 联合训练。instruction tuning 用任务模板区分输出模态，并支持 zero-shot 组合。
+T5 原文本词表与动作码本、音乐码本拼成统一词表，新 embedding 与 prediction rows 随机初始化；模态起止符告诉模型当前 token 的解释域。encoder 读取 instruction 和条件，decoder 依据前缀预测文字/动作/音乐的下一 token。统一词表让 motion-to-text、dance-to-music、text-to-motion、music-to-dance、预测和插值共享参数，但目标 head 中不同 token 原本同为分类项，不会天然知道两个动作码在连续姿态上是否相近。
+
+### 动作 decoder 的动态联合优化
+
+为补足纯交叉熵“不区分相近错码和相远错码”的问题，Stage 2/3 不再完全冻结 motion de-tokenizer。系统以解码后的连续动作 L1 寻找更合适的目标码序列，并随着 decoder 更新动态调整监督 token；LLM 的离散预测损失与 decoder 的连续重建目标共同迭代，使码语义朝可重建细节的方向适配。这是动态目标/联合优化，不应简写为梯度直接穿过不可导 argmin；复现需保持目标码更新、decoder 参数和 teacher forcing 的时序一致。
+
+### 文本桥接的多任务对齐
+
+直接混合 music-to-dance 与 text-to-motion 容易因模态差异产生梯度冲突。论文从音乐风格元数据合成诸如“一个人在跳 Jazz”的文字，增加 music-to-text 和 text-to-dance 辅助任务：音乐先对齐 LLM 熟悉的语言语义，语言再连接共享动作/舞蹈码本。对齐预训练混合 motion-to-text、dance-to-music、四类动作生成及上述辅助任务，以文本作为公共中介建立协同，而不是要求音乐码和动作码逐 token 相同。
+
+### 指令微调与推理
+
+最后把每类任务写成不同 instruction–condition–response 模板，只对 response 做 token 预测，学习用户措辞与目标模态选择。推理可执行文字生动作、音乐生舞蹈、动作补全、动作描述或舞蹈到音乐等，生成 token 送入相应 de-tokenizer。所谓 zero-shot 组合依赖 Stage 2 的共享词表和辅助任务，不保证任意未见模态组合都稳定；长自回归序列还受错误累积和结束符预测影响。
+
+### 使用边界
+
+M³GPT 输出人体动作/音频，没有机器人骨架和物理控制。联合 decoder 优化提高连续重建，并不添加接触动力学约束；用于机器人仍需重定向、可执行性筛选和闭环跟踪。复现应分别报告音乐重建、动作 tokenizer、token 任务和最终连续动作，避免只看 LLM loss。
 
 ## 实验结果与结论
 
@@ -105,5 +121,6 @@ music-to-text 与 text-to-dance 把音乐和动作分别对齐到 LLM 擅长的�
 
 ## 更新记录
 
+- 2026-09-03：依据原论文方法与训练章节，扩展总体流程、数据表征、模块信息流、训练目标、推理/部署及实现边界。
 - 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，解析三模态词表、连续动作反馈与文本桥接任务。

@@ -69,17 +69,33 @@ updated: 2026-09-03
 
 ## 研究方法详细解读
 
-### 动作与形状解耦
+### 总体流程：多模态去噪与人体形状在同一主干中耦合
 
-姿态、根运动和 body shape 分开编码，形状条件通过分层调制影响去噪表示，而不是简单复制到每帧。这样同一语义动作可在不同体形上表现出相应运动学差异，同时保持动作内容。
+Odoriko 把带噪动作、逐帧条件、文本 token、全局条件和 subject shape token 送入 Shape-Aware Motion Transformer。前半段 MM blocks 联合对齐动作、文字和性别模板；后半段移除文字，只用动作、全局条件和连续 `β` 细化运动学。生成任务由用户给出 gender/shape，网络按文本或音乐反向扩散；视频估计任务用 learnable estimation token，同时恢复动作并预测 gender/`β`，对整个去噪轨迹的 shape 输出取平均。
 
-### 多模态双模式训练
+### 规范化动作表示
 
-文本/音乐属于一对多生成条件，使用扩散采样；视频/2D 姿态是强观测，增加最大噪声/回归式估计路径。共享主干学习通用运动先验，模态适配器保留条件粒度。
+每帧由根离地高度 `rz`、地面平面根速度 `ṙx/ṙy`、竖直轴角速度 `α̇` 和 SMPL 局部关节 6D 旋转组成，去除绝对世界平移/朝向以稳定跨数据集训练。相机任务额外预测 camera-aligned 根 6D 朝向 `θr^l`，纯文本/音乐生成不需要该字段。网络直接在这一数据域做 `x0` 预测，没有 VAE/tokenizer，所有旋转和根运动误差直接进入扩散 L2。
 
-### 联合形状恢复
+### 多模态条件的局部与全局两条通路
 
-视频输入时形状未知，模型从视觉运动证据预测 SMPL 形状并用于动作解码。形状和姿态存在可辨识性耦合，衣服、相机与遮挡会使形状误差反过来影响运动。
+T5-Base 提文本 token，CLIP 提整句全局语义；Jukebox+EDGE 提音乐，TRAM 提视频，DWPose 的 18 关节 2D keypoints 经 MLP。除文字外的帧级条件都重采样/插值到动作长度，再加到对应 motion token；T5 token 沿时间维拼接后参加 full attention。每种条件还池化出全局向量（文本直接用 CLIP），与 diffusion timestep 相加并 prepend 为 global token，分别负责局部同步和长程语义。
+
+### 两段式混合 Transformer
+
+前半 Multimodal Motion blocks 让 motion、T5 text、global 和 shape token 共同 self-attention，先确定语义与大体动作；后半 Motion-Centric Refinement blocks 删除 text token，降低计算并集中精修动作，只保留已汇总的 global/shape。变长序列用 zero padding 和 masked attention，视频无文本时直接 mask 文本。该结构不是“视频回归/文本生成两个网络”，模式差异主要来自条件和 shape token。
+
+### 分层形状注入与两种工作模式
+
+SMPL shape 写成性别 `g` 和 10 维 `β`：性别决定模板/shape basis，故在前半段用可学习 gender token 注入；`β` 表示模板内连续比例，在后半段经 MLP token 注入精细运动学。shape conditioning 模式直接使用真值/用户形状，不计算 shape 预测损失；shape estimation 模式换成估计 token，并以 classifier/regressor 输出 `ĝ/β̂`。FineDance 等无 shape 数据使用可学习 placeholder，而不是伪造零形状监督。
+
+### 训练损失与数据配置
+
+随机扩散时刻加噪后，主损失是干净动作 L2；估计模式再加 `β` MSE 与 gender cross-entropy，二者权重均 0.1，生成模式权重置零。text-to-motion 使用保留真实 shape 的 AMASS 子集，music-to-dance 用 FineDance 并以 AIST++ 提供性别监督，video-to-motion 用 EMDB、3DPW、Human3.6M；预训练特征 encoder 冻结，主要更新 adapters 和 SAMT。不同数据缺失 shape 的 mask/placeholder 是联合训练契约。
+
+### UniPC 推理与边界
+
+反向过程使用 UniPC predictor–corrector；给定 shape 时每步受 `g/β` 引导，估计时每步产生 shape 预测，最终跨全部 `T` 步平均以降低单步噪声。身体形状影响落地和肢体范围，但损失仍是运动学/扩散监督，不是可微物理或机器人动力学。衣服、遮挡和相机会造成 shape—pose 不可辨识；机器人应用需另做目标骨架映射、物理筛选与跟踪。
 
 ## 实验结果与结论
 
@@ -105,5 +121,6 @@ updated: 2026-09-03
 
 ## 更新记录
 
+- 2026-09-03：依据原论文方法与训练章节，扩展总体流程、数据表征、模块信息流、训练目标、推理/部署及实现边界。
 - 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，整理形状条件、估计/生成双模式与形状恢复边界。
