@@ -7,10 +7,10 @@
 ## 馆藏概览
 
 <!-- AUTO-STATS:START -->
-- 论文：38 篇
+- 论文：39 篇
 - 项目：0 个
 - 数据集：0 个
-- 精读：13 篇
+- 精读：14 篇
 - 已进入复现流程：0 篇
 <!-- AUTO-STATS:END -->
 
@@ -36,7 +36,7 @@
 | C2 | 重定向 | **1 篇** | [retargeting](index/retargeting.md) | Human/SMPL/SMPL-X 到机器人、IK、神经重定向 |
 | C3 | 动作生成 | **28 篇** | [motion-generation](index/motion-generation.md) | Text/Music/Audio/Video 到 Motion |
 | C4 | Locomotion 与运动先验 | **3 篇** | [locomotion-prior](index/locomotion-prior.md) | Locomotion、AMP、ASE、Skill/Motion Prior |
-| C5 | 动作跟踪与全身控制 | **3 篇** | [tracking-wbc](index/tracking-wbc.md) | Mimic、Tracking、WBC、RL Control |
+| C5 | 动作跟踪与全身控制 | **4 篇** | [tracking-wbc](index/tracking-wbc.md) | Mimic、Tracking、WBC、RL Control |
 | C6 | LocoManip | **0 篇** | [locomanip](index/locomanip.md) | Locomotion + Manipulation、HOI |
 | C7 | 世界模型 / VLA / Agent | **2 篇** | [world-model-vla-agent](index/world-model-vla-agent.md) | World Model、VLA、VLM、Agent |
 | C8 | 工程与实机部署 | **0 篇** | [engineering](index/engineering.md) | Isaac Lab、MuJoCo、Sim2Real、推理与通信 |
@@ -45,6 +45,7 @@
 ## 最近更新
 
 <!-- AUTO-RECENT:START -->
+- 2026-09-04 [P0039 — ADAPT：面向鲁棒、可操控在线文本驱动人形机器人控制的敏捷扩散动作先验](papers/P0039-adapt/README.md)
 - 2026-09-03 [P0038 — TextOp：实时交互式文本驱动人形机器人动作生成与控制](papers/P0038-textop/README.md)
 - 2026-09-03 [P0037 — Odoriko：形状感知的多模态人体动作扩散框架](papers/P0037-odoriko/README.md)
 - 2026-09-03 [P0036 — OmniMotion-X：多用途多模态全身动作生成](papers/P0036-omnimotion-x/README.md)
@@ -54,7 +55,6 @@
 - 2026-09-03 [P0032 — UniMuMo：统一文本、音乐与动作生成](papers/P0032-unimumo/README.md)
 - 2026-09-03 [P0031 — MotionCraft：使用即插即用多模态控制生成全身动作](papers/P0031-motioncraft/README.md)
 - 2026-09-03 [P0030 — M³GPT：用于动作理解与生成的高级多模态多任务框架](papers/P0030-m3gpt/README.md)
-- 2026-09-03 [P0029 — LMM：用于统一多模态动作生成的大动作模型](papers/P0029-lmm/README.md)
 <!-- AUTO-RECENT:END -->
 
 ## 使用方式
