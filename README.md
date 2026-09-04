@@ -46,15 +46,15 @@
 
 <!-- AUTO-RECENT:START -->
 - 2026-09-04 [P0039 — ADAPT：面向鲁棒、可操控在线文本驱动人形机器人控制的敏捷扩散动作先验](papers/P0039-adapt/README.md)
-- 2026-09-04 [P0012 — SONIC：扩展运动跟踪以实现自然的人形机器人全身控制](papers/P0012-sonic/README.md)
-- 2026-09-04 [P0011 — 你会即兴表演吗？通过音频控制实现富有表现力的人形机器人运动](papers/P0011-roboperform/README.md)
-- 2026-09-04 [P0010 — 基于物理反馈的强化学习：让大动作模型与人形机器人控制对齐](papers/P0010-rlpf/README.md)
-- 2026-09-04 [P0009 — PhyGile：物理前缀引导的敏捷通用人形机器人动作生成与跟踪](papers/P0009-phygile/README.md)
-- 2026-09-04 [P0008 — OMG：面向通用人形机器人控制的全模态动作生成](papers/P0008-omg/README.md)
-- 2026-09-04 [P0007 — InfiniteDance：面向野外泛化的可扩展三维舞蹈生成](papers/P0007-infinitedance/README.md)
-- 2026-09-04 [P0006 — HumanoidArena：第一视角层级式全身学习基准](papers/P0006-humanoidarena/README.md)
-- 2026-09-04 [P0005 — HIL：面向动态运动控制的混合模仿学习](papers/P0005-hil/README.md)
-- 2026-09-04 [P0004 — GigaBrain-WBC-0.5：用于环境交互鲁棒全身控制的行为世界模型](papers/P0004-gigabrain-wbc-0-5/README.md)
+- 2026-09-04 [P0025 — UDE-2：多模态、多身体部位人体动作合成统一框架](papers/P0025-ude-2/README.md)
+- 2026-09-04 [P0024 — MotionGPT：将人体动作视为一种外语](papers/P0024-motiongpt/README.md)
+- 2026-09-04 [P0023 — TM2D：通过音乐—文本融合进行双模态三维舞蹈生成](papers/P0023-tm2d/README.md)
+- 2026-09-04 [P0022 — UDE：人体动作生成的统一驱动引擎](papers/P0022-ude/README.md)
+- 2026-09-04 [P0021 — AnyMo：通过掩码建模扩展任意模态条件动作生成](papers/P0021-anymo/README.md)
+- 2026-09-04 [P0020 — MACE-Dance：面向音乐驱动舞蹈视频生成的动作—外观级联专家](papers/P0020-mace-dance/README.md)
+- 2026-09-04 [P0019 — ARDY：用于交互式人体动作生成的混合表示自回归扩散模型](papers/P0019-ardy/README.md)
+- 2026-09-04 [P0018 — MotionBricks：基于模块化潜变量生成模型与智能原语的可扩展实时动作](papers/P0018-motionbricks/README.md)
+- 2026-09-04 [P0017 — Kimodo：可控人体动作生成的规模化](papers/P0017-kimodo/README.md)
 <!-- AUTO-RECENT:END -->
 
 ## 使用方式

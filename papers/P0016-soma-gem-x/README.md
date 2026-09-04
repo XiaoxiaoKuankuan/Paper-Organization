@@ -23,7 +23,7 @@ read_status: read
 reproduce_status: not-started
 local_materials: []
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-04
 ---
 -->
 
@@ -71,7 +71,21 @@ updated: 2026-09-03
 
 ## 研究方法详细解读
 
-### 总体流程：先统一人体身份，再统一姿态
+SOMA 的核心不是把 SMPL、SMPL-X、MHR 的参数名字做一层转换，而是建立一个与源模型拓扑无关的统一人体空间。它先把不同 identity 的表面映射到 canonical topology，恢复统一 77 关节骨架，再用共享 LBS 和姿态修正表示动作；反向的 pose abstraction 则把任意源模型姿态投到这套统一骨架。
+
+### 1. 总体定位：为什么已有参数化人体模型不能直接互换
+
+不同 body model 的顶点数、骨架、手脸自由度、shape 参数和 pose blend shape 都不同，相同参数值没有共同几何含义。若动作生成、视频估计和机器人重定向各绑定一种模型，数据无法合并，模型输出也难迁移。SOMA 要把“人物是谁”和“人物怎么动”分开：先从几何恢复统一 identity，再在统一骨架上表达 pose，使下游生成器和估计器不必为每种人体模型重训全部主干。
+
+### 2. 整体方法流程：身份规范化与姿态抽象两条方向
+
+1. Identity provider 从任意源模型产生中性/身份网格，并通过预计算四面体重心坐标映射到 canonical surface。
+2. 用 RBF 关节回归和 Kabsch 对齐从统一网格恢复 77 关节身份骨架。
+3. 训练共享 LBS 与 pose corrective，根据统一骨架姿态生成高保真表面。
+4. 对源模型现有姿态执行 pose abstraction，闭式求解局部骨骼旋转并映射到统一 77 关节参数。
+5. 下游 GEM-X 等估计器输出 SOMA 空间动作，Kimodo 等生成器也在同一空间工作；机器人仍需独立重定向和动力学控制。
+
+### 3. 总体信息流：先统一人体身份，再统一姿态
 
 SOMA 不是单个动作生成网络，而是一层跨人体模型的可微接口。任意 SMPL/SMPL-X/MHR 等后端先由 identity provider 输出网格，把顶点通过预计算的四面体重心坐标映射到 canonical topology；统一网格经 RBF 关节回归和 Kabsch 得到 77 关节身份骨架，再由统一 LBS 与 pose corrective 产生姿态网格。反向时，posed mesh 先转回 canonical topology，姿态抽象逐层反演 skinning 得到统一旋转；下游估计、生成或机器人重定向都只对这一公共状态编程。
 
@@ -123,6 +137,7 @@ GEM-X 从单目视频回归 SOMA 人体状态，Kimodo 在 SOMA 空间生成或�
 
 ## 更新记录
 
+- 2026-09-04：按 ADAPT 式讲解补充跨人体模型不兼容的根因，并用五步双向流程讲清 canonical topology、身份骨架、LBS、pose abstraction 与下游边界。
 - 2026-09-03：依据原论文方法与训练章节，扩展总体流程、数据表征、模块信息流、训练目标、推理/部署及实现边界。
 - 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：将飞书 GEM-X 条目归并到对应 SOMA 技术报告，补充三层表示与生态接口解读。
