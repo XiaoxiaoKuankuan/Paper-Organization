@@ -6,8 +6,8 @@ ID/题名不重复、必填字段完整、主分类和状态枚举合法、标�
 URL 使用 HTTPS。若保留原论文的本机路径，则仅做本地档案契约检查；方法详解与
 全文翻译应作为论文目录下的公开附件，由 Markdown 链接检查确保真实存在。
 此外会遍历公开 Markdown，检查导航、模板和论文页中的相对链接是否指向现存目标。
-“研究方法详细解读”还必须达到最低结构深度：包含总体链路、至少六个三级小节、
-不少于一千个去空白字符，并同时说明训练与推理。该阈值只用于拦截过度简写，
+“研究方法详细解读”还必须达到最低结构深度：包含总体链路、至少八个三级小节、
+不少于一千六百个去空白字符，并同时说明训练与推理。该阈值只用于拦截过度简写，
 通过不代表论文事实自动正确，仍需维护者逐篇对照原论文和本地译解材料复核。
 
 输出为逐项中文诊断和最终错误/警告计数。脚本完全只读，不修改 Markdown、档案
@@ -65,8 +65,8 @@ METHOD_SECTION_PATTERN = re.compile(
     r"^## 研究方法详细解读\s*$\n(?P<body>.*?)(?=^## 实验结果与结论\s*$)",
     flags=re.MULTILINE | re.DOTALL,
 )
-METHOD_MIN_COMPACT_CHARS = 1000
-METHOD_MIN_SUBSECTIONS = 6
+METHOD_MIN_COMPACT_CHARS = 1600
+METHOD_MIN_SUBSECTIONS = 8
 
 
 def controlled_tags(path: Path) -> set[str]:

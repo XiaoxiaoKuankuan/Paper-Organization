@@ -23,7 +23,7 @@ read_status: read
 reproduce_status: not-started
 local_materials: []
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-04
 ---
 -->
 
@@ -69,7 +69,22 @@ updated: 2026-09-03
 
 ## 研究方法详细解读
 
-### 总体流程：FlowVQ 负责动作词表，GPT 负责跨模态任务
+VersatileMotion 的核心是把“动作 token 要有语义”和“解码动作要高保真”拆开。FlowVQ 先用 VQ 建立可供 GPT 预测的离散语义码，再用条件 flow-matching decoder 从这些码恢复连续细节；文本、音频和动作 token 随后写成统一的 Instruction—Condition—Reply 消息，由 decoder-only Transformer 完成生成与理解任务。
+
+### 1. 总体定位：为什么普通 VQ 会限制统一动作模型
+
+码本过小会丢失手部、多人关系和快速变化，码本过大又让语言模型难以预测；固定 VQ decoder 还会把离散误差直接带到最终动作。VersatileMotion 用离散码承担高层语义与序列长度，用 flow decoder 建模同一码对应的连续多样性，从而让语言模型保持可管理词表，同时提升恢复质量。
+
+### 2. 整体训练流程：FlowVQ 两阶段加统一 GPT
+
+1. 将 MotionHub 的单人、多人和全身数据统一为含全局关系的动作表示，并整理文本/音频条件。
+2. FlowVQ Stage 1 训练 VQ encoder 与码本，把连续动作压成离散语义 token。
+3. FlowVQ Stage 2 固定/使用离散码作为条件，训练 flow-matching decoder 从噪声连续细化高保真动作。
+4. 文本走子词 tokenizer、音频走独立 VQ，三种 token 统一写入 Instruction—Condition—Reply 对话格式。
+5. decoder-only Transformer 按模态预训练、跨模态对齐和指令微调三个阶段学习动作合成与理解。
+6. 推理先生成回复 token；动作回复由 FlowVQ 连续解码，文字/音频则由各自接口处理。
+
+### 3. 总体信息流：FlowVQ 负责动作词表，GPT 负责跨模态任务
 
 VersatileMotion 先把 MotionHub 中单人/多人全身动作训练成 FlowVQ token：VQ-VAE 产生离散语义码，flow-matching decoder 在码条件下恢复高保真连续轨迹；文本使用子词 tokenizer，音频使用另一个 VQ-VAE。三类 token 被写成统一的“Instruction—Condition—Reply”消息，decoder-only GPT 先做通用预训练，再做九类 benchmark 的 generalist SFT，最后可按单一领域做 specialist SFT。推理时 GPT 生成 reply token，动作回复由 FlowVQ 解码。
 
@@ -120,6 +135,7 @@ Generalist Pretraining 从 MotionHub metadata 自动组合 text/audio/motion 的
 
 ## 更新记录
 
+- 2026-09-04：按 ADAPT 式方法导读补充离散语义与连续保真的矛盾，并用六步流程讲清 MotionHub、FlowVQ 两阶段、统一消息和 GPT 三阶段训练。
 - 2026-09-03：依据原论文方法与训练章节，扩展总体流程、数据表征、模块信息流、训练目标、推理/部署及实现边界。
 - 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
 - 2026-09-03：新建条目，明确 MotionLLaMA/VersatileMotion 名称演进；本次按当前论文版本将旧 HoMi 描述校正为 FlowVQ、MotionHub 与三阶段 LLM 训练。

@@ -46,15 +46,15 @@
 
 <!-- AUTO-RECENT:START -->
 - 2026-09-04 [P0039 — ADAPT：面向鲁棒、可操控在线文本驱动人形机器人控制的敏捷扩散动作先验](papers/P0039-adapt/README.md)
-- 2026-09-04 [P0025 — UDE-2：多模态、多身体部位人体动作合成统一框架](papers/P0025-ude-2/README.md)
-- 2026-09-04 [P0024 — MotionGPT：将人体动作视为一种外语](papers/P0024-motiongpt/README.md)
-- 2026-09-04 [P0023 — TM2D：通过音乐—文本融合进行双模态三维舞蹈生成](papers/P0023-tm2d/README.md)
-- 2026-09-04 [P0022 — UDE：人体动作生成的统一驱动引擎](papers/P0022-ude/README.md)
-- 2026-09-04 [P0021 — AnyMo：通过掩码建模扩展任意模态条件动作生成](papers/P0021-anymo/README.md)
-- 2026-09-04 [P0020 — MACE-Dance：面向音乐驱动舞蹈视频生成的动作—外观级联专家](papers/P0020-mace-dance/README.md)
-- 2026-09-04 [P0019 — ARDY：用于交互式人体动作生成的混合表示自回归扩散模型](papers/P0019-ardy/README.md)
-- 2026-09-04 [P0018 — MotionBricks：基于模块化潜变量生成模型与智能原语的可扩展实时动作](papers/P0018-motionbricks/README.md)
-- 2026-09-04 [P0017 — Kimodo：可控人体动作生成的规模化](papers/P0017-kimodo/README.md)
+- 2026-09-04 [P0038 — TextOp：实时交互式文本驱动人形机器人动作生成与控制](papers/P0038-textop/README.md)
+- 2026-09-04 [P0037 — Odoriko：形状感知的多模态人体动作扩散框架](papers/P0037-odoriko/README.md)
+- 2026-09-04 [P0036 — OmniMotion-X：多用途多模态全身动作生成](papers/P0036-omnimotion-x/README.md)
+- 2026-09-04 [P0035 — OpenDance：基于大规模互联网数据的多模态可控三维舞蹈生成](papers/P0035-opendance/README.md)
+- 2026-09-04 [P0034 — 动作的语言：统一三维人体动作的言语与非言语表达](papers/P0034-language-of-motion/README.md)
+- 2026-09-04 [P0033 — VersatileMotion（原 MotionLLaMA）：动作合成与理解统一框架](papers/P0033-versatilemotion/README.md)
+- 2026-09-04 [P0032 — UniMuMo：统一文本、音乐与动作生成](papers/P0032-unimumo/README.md)
+- 2026-09-04 [P0031 — MotionCraft：使用即插即用多模态控制生成全身动作](papers/P0031-motioncraft/README.md)
+- 2026-09-04 [P0030 — M³GPT：用于动作理解与生成的高级多模态多任务框架](papers/P0030-m3gpt/README.md)
 <!-- AUTO-RECENT:END -->
 
 ## 使用方式
