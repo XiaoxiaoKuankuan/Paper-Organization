@@ -46,15 +46,15 @@
 
 <!-- AUTO-RECENT:START -->
 - 2026-09-04 [P0039 — ADAPT：面向鲁棒、可操控在线文本驱动人形机器人控制的敏捷扩散动作先验](papers/P0039-adapt/README.md)
-- 2026-09-03 [P0038 — TextOp：实时交互式文本驱动人形机器人动作生成与控制](papers/P0038-textop/README.md)
-- 2026-09-03 [P0037 — Odoriko：形状感知的多模态人体动作扩散框架](papers/P0037-odoriko/README.md)
-- 2026-09-03 [P0036 — OmniMotion-X：多用途多模态全身动作生成](papers/P0036-omnimotion-x/README.md)
-- 2026-09-03 [P0035 — OpenDance：基于大规模互联网数据的多模态可控三维舞蹈生成](papers/P0035-opendance/README.md)
-- 2026-09-03 [P0034 — 动作的语言：统一三维人体动作的言语与非言语表达](papers/P0034-language-of-motion/README.md)
-- 2026-09-03 [P0033 — VersatileMotion（原 MotionLLaMA）：动作合成与理解统一框架](papers/P0033-versatilemotion/README.md)
-- 2026-09-03 [P0032 — UniMuMo：统一文本、音乐与动作生成](papers/P0032-unimumo/README.md)
-- 2026-09-03 [P0031 — MotionCraft：使用即插即用多模态控制生成全身动作](papers/P0031-motioncraft/README.md)
-- 2026-09-03 [P0030 — M³GPT：用于动作理解与生成的高级多模态多任务框架](papers/P0030-m3gpt/README.md)
+- 2026-09-04 [P0012 — SONIC：扩展运动跟踪以实现自然的人形机器人全身控制](papers/P0012-sonic/README.md)
+- 2026-09-04 [P0011 — 你会即兴表演吗？通过音频控制实现富有表现力的人形机器人运动](papers/P0011-roboperform/README.md)
+- 2026-09-04 [P0010 — 基于物理反馈的强化学习：让大动作模型与人形机器人控制对齐](papers/P0010-rlpf/README.md)
+- 2026-09-04 [P0009 — PhyGile：物理前缀引导的敏捷通用人形机器人动作生成与跟踪](papers/P0009-phygile/README.md)
+- 2026-09-04 [P0008 — OMG：面向通用人形机器人控制的全模态动作生成](papers/P0008-omg/README.md)
+- 2026-09-04 [P0007 — InfiniteDance：面向野外泛化的可扩展三维舞蹈生成](papers/P0007-infinitedance/README.md)
+- 2026-09-04 [P0006 — HumanoidArena：第一视角层级式全身学习基准](papers/P0006-humanoidarena/README.md)
+- 2026-09-04 [P0005 — HIL：面向动态运动控制的混合模仿学习](papers/P0005-hil/README.md)
+- 2026-09-04 [P0004 — GigaBrain-WBC-0.5：用于环境交互鲁棒全身控制的行为世界模型](papers/P0004-gigabrain-wbc-0-5/README.md)
 <!-- AUTO-RECENT:END -->
 
 ## 使用方式
