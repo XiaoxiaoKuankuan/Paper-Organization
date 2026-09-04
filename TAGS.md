@@ -24,6 +24,7 @@
 - `mixture-of-experts`
 - `contrastive-learning`
 - `reinforcement-fine-tuning`
+- `continual-learning`
 
 ## 任务
 
@@ -40,6 +41,10 @@
 - `pose-estimation`
 - `dance-generation`
 - `motion-editing`
+- `teleoperation`
+- `force-control`
+- `fall-recovery`
+- `dexterous-hand`
 
 ## 输入与动作表征
 
@@ -55,6 +60,7 @@
 - `robot-state`
 - `velocity-command`
 - `latent-motion`
+- `vr`
 
 ## 平台与对象
 

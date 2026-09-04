@@ -4,6 +4,20 @@
 
 ## 2026-09-04
 
+### 新增十篇全身控制论文与统一部署项目
+
+- 新增 P0040—P0049：MimicLite、FALCON、HEFT、HoloMotion-1、Teleopit、Humanoid-GPT、BFM-Zero、Heracles、Extreme-RGMT 与 RGMT；逐篇核验作者、机构、首次公开日期、出版信息、项目/代码入口、许可证和分项开源状态，其中 Humanoid-GPT 按当前官方页登记六家机构。
+- 从十份原论文 PDF 实际提取 Figure 1 或 Figure 2 等关键原图；MimicLite 报告没有独立模块框图，明确收录其原 Figure 1 实机能力与计算对比，没有使用自绘图冒充论文方法图。
+- 各新增档案均以不少于八个三级小节贯通总体主线、数据和表示、网络信息流、训练阶段、损失/奖励、推理部署与复现契约；重点补充 FALCON 可行三维外力课程、HEFT 的 PMG/WPC、HoloMotion 路由 MoE/KV cache、Humanoid-GPT 专家蒸馏、BFM-Zero 的 FB 提示空间、Heracles 生成中间层及 Extreme-RGMT 的 PACE/STAR。
+- 新增 J0001 `EGalahad/sim2real` 项目档案，按当前 README 核验并列出 14 个适配 checkpoint 家族，说明公共观测类/YAML、MuJoCo/Pico/G1 后端、训练仓库边界、许可证未知状态及本地未运行证据边界。
+- 为受控词表和中文显示映射增加持续学习、遥操作、力控制、跌倒恢复、灵巧手与虚拟现实六个关键标签，用于在总索引和分类页突出新论文的真正任务属性。
+
+### SONIC 正式出版信息与项目入口更新
+
+- 将 P0012 从 arXiv 预印本出版信息更新为 *Science Robotics* 11(117), eaed4592 (2026)，登记 DOI `10.1126/scirobotics.aed4592`，首次公开日期仍保持 2025-11-11。
+- 按正式项目页与 arXiv v4 更新为 28 位作者及当前顺序，补入 Jinhyung Park、David Sami，并统一 Linxi “Jim” Fan 的姓名写法；项目入口改为 GEAR-SONIC。
+- 将 SONIC 总训练计算量从旧笔记中的约 9k 修正为正式项目页与期刊摘要当前给出的 21k GPU hours，并补充正式论文、arXiv 和 GEAR-SONIC 三个资料入口。
+
 ### 全库方法讲解按 ADAPT 式结构重写（第一批）
 
 - 重构 P0001—P0012 的“研究方法详细解读”开篇：不再直接堆叠模块和维度，而是先用直白语言说明论文到底做了什么、为什么需要这样设计，再列出完整训练或分析主线。

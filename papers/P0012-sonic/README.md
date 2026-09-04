@@ -3,9 +3,9 @@
 id: P0012
 title_en: "SONIC: Supersizing Motion Tracking for Natural Humanoid Whole-Body Control"
 title_zh: "SONIC：扩展运动跟踪以实现自然的人形机器人全身控制"
-year: 2025
+year: 2026
 date: 2025-11-11
-venue: "arXiv preprint arXiv:2511.07820"
+venue: "Science Robotics 11 (117), eaed4592 (2026)"
 primary_category: tracking-wbc
 tags:
   - motion-tracking
@@ -22,12 +22,15 @@ authors:
   - Ye Yuan
   - Tingwu Wang
   - Chenran Li
-  - Sirui Chen
   - Fernando Castañeda
+  - Sirui Chen
   - Zi-Ang Cao
   - Jiefeng Li
   - David Minor
   - Qingwei Ben
+  - Jinhyung Park
+  - David Sami
+  - Zi Wang
   - Xingye Da
   - Runyu Ding
   - Cyrus Hogg
@@ -37,17 +40,16 @@ authors:
   - Tairan He
   - Haoru Xue
   - Wenli Xiao
-  - Zi Wang
   - Simon Yuen
   - Jan Kautz
   - Yan Chang
   - Umar Iqbal
-  - Linxi Jim Fan
+  - Linxi "Jim" Fan
   - Yuke Zhu
 institutions:
   - NVIDIA
 paper_url: "https://arxiv.org/abs/2511.07820"
-project_url: "https://nvlabs.github.io/SONIC/"
+project_url: "https://nvlabs.github.io/GEAR-SONIC/"
 github_url: "https://github.com/NVlabs/GR00T-WholeBodyControl"
 video_url: null
 open_source:
@@ -57,7 +59,7 @@ open_source:
   model_weights: full
   dataset: partial
   robot_deployment: full
-open_source_checked: 2026-09-03
+open_source_checked: 2026-09-04
 robots:
   - Unitree G1
 inputs:
@@ -84,18 +86,18 @@ updated: 2026-09-04
 
 *SONIC: Supersizing Motion Tracking for Natural Humanoid Whole-Body Control*
 
-[论文](https://arxiv.org/abs/2511.07820) · [项目页](https://nvlabs.github.io/SONIC/) · [官方代码](https://github.com/NVlabs/GR00T-WholeBodyControl) · [全文翻译与方法框架图详解](attachments/全文翻译与方法框架图详解.docx)
+[Science Robotics](https://www.science.org/doi/10.1126/scirobotics.aed4592) · [arXiv](https://arxiv.org/abs/2511.07820) · [项目页](https://nvlabs.github.io/GEAR-SONIC/) · [官方代码](https://github.com/NVlabs/GR00T-WholeBodyControl) · [全文翻译与方法框架图详解](attachments/全文翻译与方法框架图详解.docx)
 
 ## 基本信息
 
 <!-- AUTO-BASIC-INFO:START -->
-> **作者**：Zhengyi Luo、Ye Yuan、Tingwu Wang、Chenran Li、Sirui Chen、Fernando Castañeda、Zi-Ang Cao、Jiefeng Li、David Minor、Qingwei Ben、Xingye Da、Runyu Ding、Cyrus Hogg、Lina Song、Edy Lim、Eugene Jeong、Tairan He、Haoru Xue、Wenli Xiao、Zi Wang、Simon Yuen、Jan Kautz、Yan Chang、Umar Iqbal、Linxi Jim Fan、Yuke Zhu
+> **作者**：Zhengyi Luo、Ye Yuan、Tingwu Wang、Chenran Li、Fernando Castañeda、Sirui Chen、Zi-Ang Cao、Jiefeng Li、David Minor、Qingwei Ben、Jinhyung Park、David Sami、Zi Wang、Xingye Da、Runyu Ding、Cyrus Hogg、Lina Song、Edy Lim、Eugene Jeong、Tairan He、Haoru Xue、Wenli Xiao、Simon Yuen、Jan Kautz、Yan Chang、Umar Iqbal、Linxi "Jim" Fan、Yuke Zhu
 >
 > **机构**：NVIDIA
 >
 > **论文时间**：2025-11-11
 >
-> **期刊 / 会议**：arXiv preprint arXiv:2511.07820
+> **期刊 / 会议**：Science Robotics 11 (117), eaed4592 (2026)
 >
 > **主分类**：动作跟踪与全身控制
 >
@@ -106,6 +108,8 @@ updated: 2026-09-04
 
 ### 资料与开源说明
 
+- 论文于 2025-11-11 首次公开，2026 年正式发表于 *Science Robotics* 第 11 卷第 117 期，文章号 eaed4592，DOI `10.1126/scirobotics.aed4592`；日期字段按首次公开日登记，期刊信息按正式版本登记。
+- 官方正式项目入口现为 GEAR-SONIC；作者增至 28 人，当前 arXiv v4 更新于 2026-08-13。本页已按期刊 BibTeX 与 arXiv 当前作者顺序更新，旧项目 URL 不再作为主入口。
 - 开源边界：官方仓库当前提供训练、评估、模型和 G1 部署相关资源；论文约 700 小时的自有动作数据并未等同于完整公开数据集。
 
 ## 本文贡献
@@ -150,7 +154,7 @@ SONIC 的核心不是让一个策略直接理解文本、视频和 VR，而是�
 
 ### 百小时数据到机器人动作库
 
-原始来源约 700 小时，覆盖日常、舞蹈和高动态技能；经过 GMR/PyRoki 映射到 29 自由度 G1，并用仿真执行误差与失败条件筛选后，保留约 611 小时、超过一亿个 50 Hz 帧。最终训练索引约 317,189 段，另设内容留出 7,016 段和重复性留出 9,395 段，避免把近重复动作当作泛化。数据规模、技能多样性和模型参数量在缩放实验中分别控制，论文报告的约 9k GPU hours 是总体训练成本，不应理解为单次小模型预算。
+原始来源约 700 小时，覆盖日常、舞蹈和高动态技能；经过 GMR/PyRoki 映射到 29 自由度 G1，并用仿真执行误差与失败条件筛选后，保留约 611 小时、超过一亿个 50 Hz 帧。最终训练索引约 317,189 段，另设内容留出 7,016 段和重复性留出 9,395 段，避免把近重复动作当作泛化。数据规模、技能多样性和模型参数量在缩放实验中分别控制；正式项目页与期刊摘要给出的总计算量为 21k GPU hours，不应理解为单次小模型预算。
 
 ### 三种命令表示与 FSQ 对齐
 
@@ -195,12 +199,14 @@ SONIC 是 GENMO/OMG 等生成模型的关键执行端参考。接入或训练时
 
 ## 参考资料
 
-- [论文](https://arxiv.org/abs/2511.07820)
-- [项目页](https://nvlabs.github.io/SONIC/)
+- [Science Robotics 正式论文](https://www.science.org/doi/10.1126/scirobotics.aed4592)
+- [arXiv 论文页](https://arxiv.org/abs/2511.07820)
+- [GEAR-SONIC 官方项目页](https://nvlabs.github.io/GEAR-SONIC/)
 - [官方代码](https://github.com/NVlabs/GR00T-WholeBodyControl)
 
 ## 更新记录
 
+- 2026-09-04：按 *Science Robotics* 正式版本更新出版信息、DOI、GEAR-SONIC 项目入口、28 位作者及其顺序，并将总计算量口径更新为正式项目页给出的 21k GPU hours。
 - 2026-09-04：按 ADAPT 文档第一部分的讲解顺序重构方法导读，明确 SONIC 扩展的是 motion tracking 而非直接理解全部模态，并用五步流程讲清数据、三类 encoder、FSQ、PPO 与上游接口。
 - 2026-09-03：依据原论文方法与训练章节，扩展总体流程、数据表征、模块信息流、训练目标、推理/部署及实现边界。
 - 2026-09-03：补充正文基本信息卡，展示完整作者、机构、论文时间、期刊/会议、分类、标签与状态。
